@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Footer from './Footer';
+import Footer from './components/Footer/Footer';
 import './App.css';
 import "./Partners.css";
 import M83 from './assets/M83.webp';
