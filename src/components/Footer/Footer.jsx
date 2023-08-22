@@ -53,15 +53,15 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="bottom-bar">
-                <div className="bottom-bar-content">
-                    <div className="text">
-                        Le BILLY CREATED BY © SWANN, MELLY, ALASSANE and YANNIS
+                <div className="bottom-bar">
+                    <div className="bottom-bar-content">
+                        <div className="text">
+                            Le BILLY CREATED BY © SWANN, MELLY, ALASSANE and YANNIS
+                        </div>
+                        <img src={Payement} alt=""/>
                     </div>
-                    <img src={Payement} alt=""/>
                 </div>
-            </div>
+            </div>                        
         </footer>
     );
 };
