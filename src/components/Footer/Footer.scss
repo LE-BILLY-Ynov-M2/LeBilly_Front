@@ -6,7 +6,7 @@
 
     .footer-content {
         padding: 50px 20px;
-        max-width: 1200px;
+        max-width: 1500px;
         margin: 0 auto;
         display: flex;
         flex-flow: wrap;
@@ -55,10 +55,10 @@
             align-items: center;
             flex-direction: column;
             text-align: center;
-            gap: 10px;
+            gap: 15px;
             @include md {
                 padding: 0;
-                height: 60px;
+                height: 1px;
                 max-width: 1200px;
                 margin: 0 auto;
                 flex-direction: row;
