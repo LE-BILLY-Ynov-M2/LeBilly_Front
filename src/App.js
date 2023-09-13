@@ -7,9 +7,9 @@ import M83 from "./assets/M83.webp"
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import PlanDuSite from "./PlanDuSite"
 import Event from "./event"
-import Login from "./login"
-import Register from "./register"
-import VerifCode from "./verifCode"
+import Login from "./pages/authentification/login"
+import Register from "./pages/authentification/register"
+import VerifCode from "./pages/authentification/verifCode"
 import { AuthContextProvider } from "./context/AuthContext"
 
 // export default function Partners() {
@@ -17,12 +17,15 @@ import { AuthContextProvider } from "./context/AuthContext"
 //     'https://www.orangetechcollege.net/UserFiles/Servers/Server_86919/Image/Partners/4Rivers.png',
 //     'https://www.orangetechcollege.net/UserFiles/Servers/Server_86919/Image/Partners/AVT.png',
 //   ];
-import MonCompte from "./monCompte"
-import Presentation from "./presentation"
+import MonCompte from "./pages/moncompte/monCompte"
+import Presentation from "./pages/quisommesnous/presentation"
 import Faq from "./faq"
-import InfosPratique from "./infosPratique"
-import ForgotPassword from "./forgotPassword"
-import Resetpassword from "./resetpassword"
+import InfosPratique from "./pages/infospratique/infosPratique"
+import ForgotPassword from "./pages/authentification/forgotPassword"
+import Resetpassword from "./pages/authentification/resetpassword"
+import Photos from "./pages/photos/photos"
+import ListeClients from "./pages/admin/listeClients/listeClients"
+import ModifClient from "./pages/admin/listeClients/[id]"
 ;<Header />
 
 const Main = () => {
@@ -97,6 +100,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Main />} exact />
                         <Route path="/event" element={<Event />} />
+                        <Route path="/photos" element={<Photos />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/plan-du-site" element={<PlanDuSite />} />
@@ -107,6 +111,8 @@ const App = () => {
                         <Route path="/infosPratique" element={<InfosPratique />} />
                         <Route path="/forgotPassword" element={<ForgotPassword />} />
                         <Route path="/resetpassword" element={<Resetpassword />} />
+                        <Route path="/listeClients" element={<ListeClients />} />
+                        <Route path="/listeClients/:id" element={<ModifClient />} />
                     </Routes>
                     <Footer />
                 </div>

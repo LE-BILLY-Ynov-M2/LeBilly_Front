@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import Input from "./components/others/input/input"
-import Button from "./components/others/button/button"
-import userService from "./services/user.service"
+import Input from "../../components/others/input/input"
+import Button from "../../components/others/button/button"
+import userService from "../../services/user.service"
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState({})

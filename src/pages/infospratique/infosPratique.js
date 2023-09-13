@@ -1,5 +1,5 @@
 import React from "react"
-import Geolocalization from "./components/others/geolocalization/geolocalization"
+import Geolocalization from "../../components/others/geolocalization/geolocalization"
 
 const InfosPratique = () => {
     return (
