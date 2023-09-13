@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import Input from "./components/others/input/input"
-import Button from "./components/others/button/button"
-import userService from "./services/user.service"
+import Input from "../../components/others/input/input"
+import Button from "../../components/others/button/button"
+import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
 
 const Register = () => {
@@ -10,6 +10,8 @@ const Register = () => {
     const [isVisible, setIsVisible] = useState(true)
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
+    const [valid, setValid] = useState(false)
+    const [validMessage, setValidMessage] = useState("")
     const [errorCode, setErrorCode] = useState(false)
     const [errorCodeMessage, setErrorCodeMessage] = useState("")
     const navigate = useNavigate()
@@ -21,8 +23,25 @@ const Register = () => {
             .then(data => {
                 console.log("data, register")
                 console.log(data)
+                if (data.message) {
+                    console.log("hhhhhh")
+                    setValid(true)
+                    setError(false)
+                    setValidMessage(data.message)
+                } else {
+                    console.log("llllll")
+                    setError(true)
+                    setValid(false)
+                    if (data.email[0] === "Un objet account avec ce champ Email existe déjà.") {
+                        console.log("ffffff")
+                        setErrorMessage(data.email[0])
+                    } else {
+                        console.log("rrrrrrrr")
+                        setErrorMessage("Tous les champs sont obligatoires")
+                    }
+                }
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrorMessage("Tous les champs sont obligatoires"))
     }
 
     return (
@@ -31,6 +50,7 @@ const Register = () => {
                 <div>
                     <Input
                         label="Nom"
+                        required
                         onChange={e => {
                             setUser({ ...user, name: e.target.value })
                         }}
@@ -38,6 +58,7 @@ const Register = () => {
                     <br />
                     <Input
                         label="Prénom"
+                        required
                         onChange={e => {
                             setUser({ ...user, prenom: e.target.value })
                         }}
@@ -45,20 +66,31 @@ const Register = () => {
                     <br />
                     <Input
                         label="Pseudo"
+                        required
                         onChange={e => {
                             setUser({ ...user, username: e.target.value })
                         }}
                     />
                     <br />
-                    <Input
-                        label="Sexe"
-                        onChange={e => {
+                    <label>Sexe</label>
+                    <br />
+                    <select
+                        onClick={e => {
                             setUser({ ...user, sexe: e.target.value })
                         }}
-                    />
+                        name="pets"
+                        id="pet-select"
+                    >
+                        <option value=""> </option>
+                        <option value="O">O</option>
+                        <option value="F">F</option>
+                        <option value="M">M</option>
+                    </select>
+                    <br />
                     <br />
                     <Input
                         label="Code postal"
+                        required
                         onChange={e => {
                             setUser({ ...user, code_postal: e.target.value })
                         }}
@@ -66,6 +98,7 @@ const Register = () => {
                     <br />
                     <Input
                         label="Adresse"
+                        required
                         onChange={e => {
                             setUser({ ...user, adresse: e.target.value })
                         }}
@@ -73,6 +106,7 @@ const Register = () => {
                     <br />
                     <Input
                         label="Email"
+                        required
                         onChange={e => {
                             setUser({ ...user, email: e.target.value })
                         }}
@@ -81,6 +115,7 @@ const Register = () => {
                     <Input
                         label="Mot de passe"
                         type="password"
+                        required={true}
                         onChange={e => {
                             setUser({ ...user, password: e.target.value })
                         }}
@@ -96,7 +131,15 @@ const Register = () => {
                     <Button title="S'inscrire" onClick={e => handlesubmit(e)} />
                     {error ? (
                         <div>
+                            <p>error</p>
                             <p>{errorMessage}</p>
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                    {valid ? (
+                        <div>
+                            <p>{validMessage}</p>
                         </div>
                     ) : (
                         ""

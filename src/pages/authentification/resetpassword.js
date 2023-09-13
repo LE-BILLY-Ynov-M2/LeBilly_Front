@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import Input from "./components/others/input/input"
-import Button from "./components/others/button/button"
+import Input from "../../components/others/input/input"
+import Button from "../../components/others/button/button"
 
 const Resetpassword = () => {
     const [password, setPassword] = useState({})

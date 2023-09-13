@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useContext } from "react"
-import Input from "./components/others/input/input"
-import Button from "./components/others/button/button"
-import userService from "./services/user.service"
+import Input from "../../components/others/input/input"
+import Button from "../../components/others/button/button"
+import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
-import AuthContext from "./context/AuthContext"
+import AuthContext from "../../context/AuthContext"
 
 const Login = () => {
     const [user, setUser] = useState({})
+    const [error, setError] = useState(false)
+    const [valid, setValid] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
+    const [validMessage, setValidMessage] = useState("")
     const navigate = useNavigate()
     const { setUserContext } = useContext(AuthContext)
 
@@ -15,26 +19,24 @@ const Login = () => {
         userService
             .login(user)
             .then(data => {
-                console.log(data)
-                setUserContext({
-                    token: data.token,
-                    admin: data.admin,
-                })
-                navigate("/event")
-                // if (data.auth === true) {
-                //     setError(false)
-                //     // localStorage.setItem("token", data.token)
-                //     setUserContext({
-                //         token: data.token,
-                //         username: data.username,
-                //         id: data.id,
-                //         image: data.image,
-                //     })
-                //     router.push("/")
-                // } else {
-                //     setError(true)
-                //     setErrorMessage("Erreur d'email ou de mot de passe")
-                // }
+                if (data.detail) {
+                    setValid(false)
+                    setError(true)
+                    setErrorMessage(data.detail)
+                }
+                if (data.message) {
+                    setError(false)
+                    setValid(true)
+                    setValidMessage(data.message)
+                    console.log(data)
+                }
+                // console.log(data)
+                // setUserContext({
+                //     token: data.token,
+                //     admin: data.admin,
+                //     id: data.id,
+                // })
+                // navigate("/event")
             })
             .catch(err => {
                 console.log(err)
@@ -67,6 +69,13 @@ const Login = () => {
                     navigate("/register")
                 }}
             />
+            {error ? (
+                <div>
+                    <p>{errorMessage}</p>
+                </div>
+            ) : (
+                ""
+            )}
         </div>
     )
 }

@@ -35,4 +35,29 @@ export default {
             body: JSON.stringify(email),
         }).then(res => res.json())
     },
+    getUser(id) {
+        return fetch(`http://localhost:5500/accounts/accounts/${id}/`, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+            },
+        }).then(res => res.json())
+    },
+    updateUser(id, user) {
+        return fetch("http://localhost:5500/accounts/update/" + id + "/", {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+        }).then(res => res.json())
+    },
+    getAllPhotos() {
+        return fetch("http://localhost:5500/accounts/images/", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+            },
+        }).then(res => res.json())
+    },
 }
