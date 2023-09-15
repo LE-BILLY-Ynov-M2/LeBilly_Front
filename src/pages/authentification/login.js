@@ -28,6 +28,12 @@ const Login = () => {
                     setError(false)
                     setValid(true)
                     setValidMessage(data.message)
+                    setUserContext({
+                        token: data.token,
+                        admin: data.admin,
+                        id: data.user_id,
+                    })
+                    navigate("/")
                     console.log(data)
                 }
                 // console.log(data)

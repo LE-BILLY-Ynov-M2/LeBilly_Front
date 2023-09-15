@@ -26,6 +26,7 @@ import Resetpassword from "./pages/authentification/resetpassword"
 import Photos from "./pages/photos/photos"
 import ListeClients from "./pages/admin/listeClients/listeClients"
 import ModifClient from "./pages/admin/listeClients/[id]"
+import AjoutClient from "./pages/admin/listeClients/ajoutClient/ajoutClient"
 ;<Header />
 
 const Main = () => {
@@ -113,6 +114,7 @@ const App = () => {
                         <Route path="/resetpassword" element={<Resetpassword />} />
                         <Route path="/listeClients" element={<ListeClients />} />
                         <Route path="/listeClients/:id" element={<ModifClient />} />
+                        <Route path="/ajoutClient" element={<AjoutClient />} />
                     </Routes>
                     <Footer />
                 </div>

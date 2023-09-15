@@ -5,6 +5,7 @@ import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import AuthContext from "../../context/AuthContext"
+import { AiOutlineEdit, AiOutlineLeft } from "react-icons/ai"
 
 const MonCompte = () => {
     const [user, setUser] = useState({})
@@ -13,28 +14,38 @@ const MonCompte = () => {
     const { userContext } = useContext(AuthContext)
 
     useEffect(() => {
-        // userService
-        //     .getUser(userContext.id)
-        //     .then(data => {
-        //         console.log(data)
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
-        //si il n'y a pas de veriftoken
-        navigate("/login")
-    })
+        //faire le verif token
+        //si pas verifier
+        //navigate("/login")
+        //sinon
+        console.log(userContext)
+        console.log(userContext.id)
+        userService
+            .getUser(userContext.id)
+            .then(data => {
+                setUser(data)
+                console.log(data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
     const updateCompte = () => {
         userService
             .updateUser(userContext.id, user)
             .then(data => {
                 console.log(data)
-                setVisible(false)
+                setVisible(true)
             })
             .catch(err => {
                 console.log(err)
             })
+    }
+
+    const logout = () => {
+        localStorage.removeItem("user")
+        navigate("/")
     }
 
     return (
@@ -43,19 +54,32 @@ const MonCompte = () => {
             {visible ? (
                 <div>
                     <p>Mes infos</p>
+                    <AiOutlineEdit
+                        onClick={() => {
+                            setVisible(false)
+                        }}
+                    />
                     {user ? (
                         <div>
-                            {user.prenom}
+                            <p>Prénom</p>
+                            <p>{user.prenom}</p>
                             <br />
-                            {user.name}
+                            <p>Name</p>
+                            <p>{user.name}</p>
                             <br />
-                            {user.username}
+                            <p>Nom d'utilisateur</p>
+                            <p>{user.username}</p>
                             <br />
-                            {user.sexe}
+                            <p>Sexe</p>
+                            <p>{user.sexe}</p>
                             <br />
-                            {user.adresse}
+                            <p>Adresse</p>
+                            <p>{user.adresse}</p>
                             <br />
-                            {user.code_postal}
+                            <p>Code postal</p>
+                            <p>{user.code_postal}</p>
+                            <br />
+                            <Button title="Se déconnecter" onClick={() => logout()} />
                         </div>
                     ) : (
                         <div>pas d'information</div>
@@ -64,9 +88,11 @@ const MonCompte = () => {
             ) : (
                 <div>
                     <p>Modifiées mes infos</p>
+                    <AiOutlineLeft onClick={() => setVisible(true)} />
                     <Input
                         label="Prenom"
                         className=""
+                        value={user.prenom || ""}
                         onChange={e => {
                             setUser({ ...user, prenom: e.target.value })
                         }}
@@ -74,6 +100,7 @@ const MonCompte = () => {
                     <Input
                         label="Nom"
                         className=""
+                        value={user.name || ""}
                         onChange={e => {
                             setUser({ ...user, name: e.target.value })
                         }}
@@ -81,20 +108,26 @@ const MonCompte = () => {
                     <Input
                         label="Nom d'utilisateur"
                         className=""
+                        value={user.username || ""}
                         onChange={e => {
                             setUser({ ...user, username: e.target.value })
                         }}
                     />
-                    <Input
-                        label="Sexe"
-                        className=""
-                        onChange={e => {
+                    <select
+                        onClick={e => {
                             setUser({ ...user, sexe: e.target.value })
                         }}
-                    />
+                        name="pets"
+                        id="pet-select"
+                    >
+                        <option value="O">O</option>
+                        <option value="F">F</option>
+                        <option value="M">M</option>
+                    </select>
                     <Input
                         label="Adresse"
                         className=""
+                        value={user.adresse || ""}
                         onChange={e => {
                             setUser({ ...user, adresse: e.target.value })
                         }}
