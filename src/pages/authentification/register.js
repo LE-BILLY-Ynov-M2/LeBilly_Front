@@ -3,6 +3,8 @@ import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
+import { FiCheck } from "react-icons/fi"
+import styles from "./register.module.scss"
 
 const Register = () => {
     const [user, setUser] = useState({})
@@ -14,6 +16,9 @@ const Register = () => {
     const [validMessage, setValidMessage] = useState("")
     const [errorCode, setErrorCode] = useState(false)
     const [errorCodeMessage, setErrorCodeMessage] = useState("")
+    const [eightcaracmin, setEightcaracmin] = useState(false)
+    const [oneNumberMin, setOneNumberMin] = useState(false)
+    const [oneCaracSpeMin, setOneCaracSpeMin] = useState(false)
     const navigate = useNavigate()
 
     const handlesubmit = e => {
@@ -24,12 +29,10 @@ const Register = () => {
                 console.log("data, register")
                 console.log(data)
                 if (data.message) {
-                    console.log("hhhhhh")
                     setValid(true)
                     setError(false)
                     setValidMessage(data.message)
                 } else {
-                    console.log("llllll")
                     setError(true)
                     setValid(false)
                     if (data.email[0] === "Un objet account avec ce champ Email existe déjà.") {
@@ -43,6 +46,29 @@ const Register = () => {
             })
             .catch(err => setErrorMessage("Tous les champs sont obligatoires"))
     }
+
+    useEffect(() => {
+        if (user.password !== undefined) {
+            var onenumber = /[0-9]+/
+            var onecaracspe = /[^A-Za-z0-9_]/
+            //var onenumber = /[a-z]+[0-9]+[a-z]+/
+            if (user.password.length >= 8) {
+                setEightcaracmin(true)
+            } else {
+                setEightcaracmin(false)
+            }
+            if (user.password.match(onenumber)) {
+                setOneNumberMin(true)
+            } else {
+                setOneNumberMin(false)
+            }
+            if (user.password.match(onecaracspe)) {
+                setOneCaracSpeMin(true)
+            } else {
+                setOneCaracSpeMin(false)
+            }
+        }
+    }, [user.password])
 
     return (
         <div>
@@ -128,7 +154,45 @@ const Register = () => {
                     }}
                 /> */}
                     <br />
-                    <Button title="S'inscrire" onClick={e => handlesubmit(e)} />
+                    {eightcaracmin ? (
+                        <div>
+                            <FiCheck color="green" /> 8 caractères minimum
+                        </div>
+                    ) : (
+                        <div>
+                            <FiCheck color="grey" /> 8 caractères minimum
+                        </div>
+                    )}
+                    {oneNumberMin ? (
+                        <div>
+                            <FiCheck color="green" /> 1 chiffre minimum
+                        </div>
+                    ) : (
+                        <div>
+                            <FiCheck color="grey" /> 1 chiffre minimum
+                        </div>
+                    )}
+                    {oneCaracSpeMin ? (
+                        <div>
+                            <FiCheck color="green" /> 1 caractère spécial
+                        </div>
+                    ) : (
+                        <div>
+                            <FiCheck color="grey" /> 1 caractère spécial
+                        </div>
+                    )}
+                    {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
+                        <Button
+                            title="S'inscrire"
+                            className={styles.buttonblue}
+                            onClick={e => handlesubmit(e)}
+                        />
+                    ) : (
+                        <>
+                            <Button title="S'inscrire" className={styles.buttongrey} />
+                        </>
+                    )}
+
                     {error ? (
                         <div>
                             <p>error</p>

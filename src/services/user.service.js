@@ -36,7 +36,7 @@ export default {
         }).then(res => res.json())
     },
     getUser(id) {
-        return fetch(`http://localhost:5500/accounts/accounts/${id}/`, {
+        return fetch(`http://localhost:5500/accounts/user/${id}/`, {
             method: "GET",
             headers: {
                 "content-type": "application/json",
@@ -58,6 +58,24 @@ export default {
             headers: {
                 "content-type": "application/json",
             },
+        }).then(res => res.json())
+    },
+    verifToken(token) {
+        return fetch("http://localhost:5500/accounts/verify-token/" + token + "/", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+            },
+        }).then(res => res.json())
+    },
+    formResetPassword(token) {
+        const body = { token: token }
+        return fetch(`http://localhost:5500/accounts/password-reset-request/`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(body),
         }).then(res => res.json())
     },
 }

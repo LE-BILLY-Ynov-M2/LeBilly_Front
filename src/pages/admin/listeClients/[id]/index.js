@@ -3,6 +3,7 @@ import clientsService from "../../../../services/clients.service"
 import Input from "../../../../components/others/input/input"
 import Button from "../../../../components/others/button/button"
 import { useNavigate } from "react-router-dom"
+import userService from "../../../../services/user.service"
 
 const Index = () => {
     const urlId = window.location.pathname.split("/")[2]
@@ -10,8 +11,8 @@ const Index = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        clientsService
-            .getClient(urlId)
+        userService
+            .getUser(urlId)
             .then(data => {
                 setClient(data)
             })
@@ -19,11 +20,11 @@ const Index = () => {
     }, [])
 
     const valModifClient = () => {
-        console.log(client)
-        clientsService
-            .updateClients(urlId, client)
+        userService
+            .updateUser(urlId, client)
             .then(data => {
                 console.log(data)
+                navigate("/listeClients")
             })
             .catch(err => console.log(err))
     }
@@ -106,16 +107,6 @@ const Index = () => {
                 value={client.password || ""}
                 onChange={e => {
                     setClient({ ...client, password: e.target.value })
-                }}
-            />
-            <br />
-            <Input
-                type="checkbox"
-                label="Admin"
-                className=""
-                value={client.isAdmin || false}
-                onChange={e => {
-                    setClient({ ...client, isAdmin: e.target.value })
                 }}
             />
             <br />

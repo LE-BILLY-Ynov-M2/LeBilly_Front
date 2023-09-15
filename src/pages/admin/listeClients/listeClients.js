@@ -16,6 +16,7 @@ const ListeClients = () => {
         clientsService
             .getAllClients()
             .then(data => {
+                console.log(data)
                 setClients(data)
             })
             .catch(err => console.log(err))
@@ -34,11 +35,13 @@ const ListeClients = () => {
         clientsService
             .deleteClient(id)
             .then(data => {
-                if (data.message) {
-                    setIsError(false)
-                    setIsValid(true)
-                    setValidMessage(data.message)
-                }
+                window.location.reload(false)
+                // if (data.message) {
+                //     setIsError(false)
+                //     setIsValid(true)
+                //     setValidMessage(data.message)
+
+                // }
                 if (data.detail) {
                     setIsError(true)
                     setIsValid(false)
