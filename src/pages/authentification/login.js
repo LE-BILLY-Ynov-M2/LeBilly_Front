@@ -4,6 +4,7 @@ import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
 import AuthContext from "../../context/AuthContext"
+import "./login.scss"
 
 const Login = () => {
     const [user, setUser] = useState({})
@@ -44,31 +45,50 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <Input
-                label="E-mail"
-                className=""
-                onChange={e => {
-                    setUser({ ...user, email: e.target.value })
-                }}
-            />
-            <br />
-            <Input
-                label="Mot de passe"
-                type="password"
-                className=""
-                onChange={e => {
-                    setUser({ ...user, password: e.target.value })
-                }}
-            />
-            <Button title="Mot de passe oublié" onClick={() => navigate("/forgotPassword")} />
-            <Button title="Se connecter" className="btn btn-blue" onClick={e => handleSubmit(e)} />
-            <Button
-                title="S'inscrire"
-                onClick={() => {
-                    navigate("/register")
-                }}
-            />
+        <div className="bloc">
+            <div className="container">
+                <div className="text">Veuillez saisir vos identifiants</div>
+                <br />
+                <br />
+                <div className="label">E-mail</div>
+                <Input
+                    label=""
+                    className="input"
+                    onChange={e => {
+                        setUser({ ...user, email: e.target.value })
+                    }}
+                />
+                <br />
+                <div className="label">Mot de passe</div>
+                <Input
+                    label=""
+                    type="password"
+                    className="input"
+                    onChange={e => {
+                        setUser({ ...user, password: e.target.value })
+                    }}
+                />
+
+                <div className="col">
+                    <Button
+                        className="btn btn-purple"
+                        title="Mot de passe oublié"
+                        onClick={() => navigate("/forgotPassword")}
+                    />
+                    <Button
+                        title="Se connecter"
+                        className="btn btn-blue"
+                        onClick={e => handleSubmit(e)}
+                    />
+                    <Button
+                        className="btn btn-purple"
+                        title="S'inscrire"
+                        onClick={() => {
+                            navigate("/register")
+                        }}
+                    />
+                </div>
+            </div>
             {error ? (
                 <div>
                     <p>{errorMessage}</p>
