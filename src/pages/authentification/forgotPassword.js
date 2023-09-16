@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
+import "./forgotPassword.scss"
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState({})
@@ -33,21 +34,34 @@ const ForgotPassword = () => {
     }
 
     return (
-        <div>
-            <Input
-                label="E-mail"
-                className="input input-form"
-                onChange={e => {
-                    setEmail({ ...email, email: e.target.value })
-                }}
-            />
+        <div className="bloc-fgt">
+            <div className="container-fgt">
+                <div className="text-fgt">
+                    Mot de passe oublié ?
+                    <br />
+                    Saisir votre e-mail pour recevoir votre code de sécurité
+                </div>
+                <br />
+                <br />
+                <div className="label-fgt">E-mail</div>
+                <Input
+                    label=""
+                    className="input-form"
+                    onChange={e => {
+                        setEmail({ ...email, email: e.target.value })
+                    }}
+                />
 
-            <Button
-                title="Envoyer"
-                onClick={e => {
-                    handleSubmit(e)
-                }}
-            />
+                <div className="col-fgt">
+                    <Button
+                        className="btn-fgt"
+                        title="Envoyer"
+                        onClick={e => {
+                            handleSubmit(e)
+                        }}
+                    />
+                </div>
+            </div>
             {valid ? (
                 <div>
                     <p>{validMessage}</p>
