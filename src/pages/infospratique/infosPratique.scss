@@ -1,6 +1,6 @@
 @import "../../css-config/mixins.scss";
 
-.bloc {
+.bloc-info {
     font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
@@ -9,8 +9,8 @@
     width: 100%;
     background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
 
-    .container {
-        max-width: 800px;
+    .container-info {
+        max-width: 1000px;
         background: #fff;
         width: 800px;
         padding: 25px 40px 10px 40px;
@@ -18,9 +18,9 @@
         background-color: floralwhite;
         border-radius: 30px;
 
-        .text {
+        .title-info {
             text-align: center;
-            font-size: 30px;
+            font-size: 33px;
             font-weight: 600;
             font-family: sans-serif;
             background-image: linear-gradient(to right, #1bffff, #2e3192);
@@ -30,42 +30,29 @@
             color: transparent;
         }
 
-        .label {
+        .p {
             font-size: 20px;
+            font-weight: 100;
+            font-family: sans-serif;
+            margin: 30px;
+            text-align: center;
+        }
+
+        .map {
+            margin-left: 55px;
+        }
+
+        .h3 {
             font-weight: bold;
             font-family: sans-serif;
-        }
-
-        .input {
-            padding: 5px;
-            margin: 5px 0;
-            width: 100%;
-            border-radius: 30px;
-        }
-
-        .col {
-            display: inline-block;
-            margin: 10px 2.5% 10px 7%;
+            margin: 40px;
             text-align: center;
+        }
 
-            .btn {
-                cursor: pointer;
-                border-radius: 30px;
-                border-color: white;
-                font-size: large;
-                padding: 10px;
-                margin: 20px;
-                justify-content: center;
-            }
-            .btn-blue {
-                background: linear-gradient(115deg, #2e3192 50%, #1bffff 90%);
-                color: white;
-                font-weight: bold;
-            }
-            .btn-purple {
-                background-color: #2e3192;
-                color: white;
-            }
+        .cities {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 16px;
         }
     }
 }
