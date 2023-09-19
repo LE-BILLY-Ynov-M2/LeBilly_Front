@@ -7,58 +7,55 @@ import { FiCheck } from "react-icons/fi"
 
 const Resetpassword = () => {
     const [password, setPassword] = useState({})
-    const [token, setToken] = useState({})
+    const [isValid, setIsValid] = useState(false)
+    const [validMessage, setValidMessage] = useState("")
     const navigate = useNavigate()
     const [eightcaracmin, setEightcaracmin] = useState(false)
     const [oneNumberMin, setOneNumberMin] = useState(false)
     const [oneCaracSpeMin, setOneCaracSpeMin] = useState(false)
 
     useEffect(() => {
-        const url = window.location.search
-        const paramUrl = url.split("=")
-        const token = paramUrl[1]
-        userService
-            .formResetPassword(token)
-            .then(data => {
-                setToken(data)
-            })
-            .catch(err => {
-                navigate("/login")
-                console.log(err)
-            })
-    }, [])
-
-    useEffect(() => {
-        if (password.password !== undefined) {
+        if (password.new_password !== undefined) {
             var onenumber = /[0-9]+/
             var onecaracspe = /[^A-Za-z0-9_]/
             //var onenumber = /[a-z]+[0-9]+[a-z]+/
-            if (password.password.length >= 8) {
+            if (password.new_password.length >= 8) {
                 setEightcaracmin(true)
             } else {
                 setEightcaracmin(false)
             }
-            if (password.password.match(onenumber)) {
+            if (password.new_password.match(onenumber)) {
                 setOneNumberMin(true)
             } else {
                 setOneNumberMin(false)
             }
-            if (password.password.match(onecaracspe)) {
+            if (password.new_password.match(onecaracspe)) {
                 setOneCaracSpeMin(true)
             } else {
                 setOneCaracSpeMin(false)
             }
         }
-    }, [password.password])
+    }, [password.new_password])
 
     const modifPassword = e => {
         e.preventDefault()
+        const url = window.location.pathname
+        const paramUrl = url.split("/")
+        const token = paramUrl[2]
         userService
-            .updateUser(token, password)
-            .then(() => {
-                navigate("/login")
+            .formResetPassword(token, password)
+            .then(data => {
+                console.log(data)
+                if (data.detail) {
+                    setIsValid(true)
+                    setValidMessage(data.detail)
+                    navigate("/login")
+                } else {
+                    setIsValid(false)
+                }
             })
             .catch(err => {
+                navigate("/login")
                 console.log(err)
             })
     }
@@ -70,7 +67,7 @@ const Resetpassword = () => {
                 label="Mot de passe"
                 type="password"
                 onChange={e => {
-                    setPassword({ ...password, password: e.target.value })
+                    setPassword({ ...password, new_password: e.target.value })
                 }}
             />
             {eightcaracmin ? (
@@ -112,6 +109,7 @@ const Resetpassword = () => {
                     <Button title="Envoyer" />
                 </>
             )}
+            {isValid ? <p>{validMessage}</p> : ""}
         </div>
     )
 }

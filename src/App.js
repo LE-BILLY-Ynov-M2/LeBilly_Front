@@ -114,6 +114,7 @@ const App = () => {
                         <Route path="/resetpassword" element={<Resetpassword />} />
                         <Route path="/listeClients" element={<ListeClients />} />
                         <Route path="/listeClients/:id" element={<ModifClient />} />
+                        <Route path="/reset-password/:token" element={<Resetpassword />} />
                         <Route path="/ajoutClient" element={<AjoutClient />} />
                     </Routes>
                     <Footer />
