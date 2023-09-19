@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './components/Footer/Footer';
-import './App.css';
+import './App.scss';
 import './PlanDuSite.css';
 import "./Partners.css";
 import PresentationEvenement from './typeevent.js';

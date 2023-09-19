@@ -1,10 +1,11 @@
 import React from "react"
 import Header from "./Header"
 import Footer from "./components/Footer/Footer"
-import "./App.css"
+import "./App.scss"
 import "./Partners.css"
 import M83 from "./assets/M83.webp"
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
+import AdminDashboard from './AdminDashboard';
 import PlanDuSite from "./PlanDuSite"
 import Event from "./event"
 import Login from "./pages/authentification/login"
