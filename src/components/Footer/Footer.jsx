@@ -1,17 +1,24 @@
-import React from "react";
-import "./Footer.scss";
-import { FaLocationArrow, FaMobileAlt, FaEnvelope } from "react-icons/fa";
+import React, { useEffect } from "react"
+import "./Footer.scss"
+import { FaLocationArrow, FaMobileAlt, FaEnvelope } from "react-icons/fa"
 import Payement from "../../assets/payments.png"
 
 const Footer = () => {
+    useEffect(() => {
+        window.$crisp = []
+        window.CRISP_WEBSITE_ID = "e5f26066-f513-42e9-b335-efd059c1ce8e"
+
+        const script = document.createElement("script")
+        script.src = "https://client.crisp.chat/l.js"
+        script.async = true
+        document.body.appendChild(script)
+    }, [])
     return (
         <footer className="footer">
             <div className="footer-content">
                 <div className="col">
                     <div className="title">LE BILLY</div>
-                    <div className="text">
-                         
-                    </div>
+                    <div className="text"></div>
                 </div>
                 <div className="col">
                     <div className="title">Engagement qualité</div>
@@ -35,9 +42,7 @@ const Footer = () => {
                     <div className="title">Adresse et Contact</div>
                     <div className="c-items">
                         <FaMobileAlt />
-                        <div className="text">
-                            Téléphone : 01 41 20 69 57
-                        </div>
+                        <div className="text">Téléphone : 01 41 20 69 57</div>
                     </div>
                     <div className="c-items">
                         <FaLocationArrow />
@@ -45,12 +50,10 @@ const Footer = () => {
                             Adresse : 23 boulevard de Cluny ZI Breizh Cola, 22 200 GUINGAMP
                         </div>
                     </div>
-                    
+
                     <div className="c-items">
                         <FaEnvelope />
-                        <div className="text">
-                            E-mail : titrerncp@ynov.com
-                        </div>
+                        <div className="text">E-mail : titrerncp@ynov.com</div>
                     </div>
                 </div>
                 <div className="bottom-bar">
@@ -58,12 +61,12 @@ const Footer = () => {
                         <div className="text">
                             Le BILLY CREATED BY © SWANN, MELLY, ALASSANE and YANNIS
                         </div>
-                        <img src={Payement} alt=""/>
+                        <img src={Payement} alt="" />
                     </div>
                 </div>
-            </div>                        
+            </div>
         </footer>
-    );
-};
+    )
+}
 
-export default Footer;
+export default Footer

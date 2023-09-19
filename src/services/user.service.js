@@ -68,14 +68,13 @@ export default {
             },
         }).then(res => res.json())
     },
-    formResetPassword(token) {
-        const body = { token: token }
-        return fetch(`http://localhost:5500/accounts/password-reset-request/`, {
+    formResetPassword(token, password) {
+        return fetch(`http://localhost:5500/accounts/reset-password/${token}/`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(body),
+            body: JSON.stringify(password),
         }).then(res => res.json())
     },
 }

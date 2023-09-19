@@ -24,46 +24,46 @@ const Photos = () => {
             })
     }, [])
 
-    const deletePhoto = () => {}
+    // const deletePhoto = () => {}
 
-    const handleFileSelected = e => {
-        setIsChangeUploadFile(true)
-        setUploadFile(e.target.files[0])
-    }
-    useEffect(() => {
-        if (isChangeUploadFile) {
-            handleSubmit()
-            setIsChangeUploadFile(false)
-        }
-    }, [uploadFile])
+    // const handleFileSelected = e => {
+    //     setIsChangeUploadFile(true)
+    //     setUploadFile(e.target.files[0])
+    // }
+    // useEffect(() => {
+    //     if (isChangeUploadFile) {
+    //         handleSubmit()
+    //         setIsChangeUploadFile(false)
+    //     }
+    // }, [uploadFile])
 
-    const handleSubmit = async () => {
-        console.log(uploadFile, "file")
-        const formData = new FormData()
-        formData.append("file", uploadFile)
-        formData.append("upload_preset", "ml_default")
-        console.log("tt")
-        console.log(formData)
-        console.log("/tt")
-        photoService
-            .addPhoto(uploadFile)
-            .then(data => {
-                console.log(data)
-            })
-            .catch(err => console.log(err))
-        // const response = await fetch(`http://localhost:5500/accounts/upload_photo/`, {
-        //     method: "POST",
-        //     body: { file: formData },
-        // })
-        // const data = await response.json()
-        // console.log("data")
-        // console.log(data)
-    }
+    // const handleSubmit = async () => {
+    //     console.log(uploadFile, "file")
+    //     const formData = new FormData()
+    //     formData.append("file", uploadFile)
+    //     formData.append("upload_preset", "ml_default")
+    //     console.log("tt")
+    //     console.log(formData)
+    //     console.log("/tt")
+    //     photoService
+    //         .addPhoto(uploadFile)
+    //         .then(data => {
+    //             console.log(data)
+    //         })
+    //         .catch(err => console.log(err))
+    //     // const response = await fetch(`http://localhost:5500/accounts/upload_photo/`, {
+    //     //     method: "POST",
+    //     //     body: { file: formData },
+    //     // })
+    //     // const data = await response.json()
+    //     // console.log("data")
+    //     // console.log(data)
+    // }
 
     return (
         <div>
             <h1 className={styles.h1}>Souvenirs</h1>
-            {userContext && userContext.admin ? (
+            {/* {userContext && userContext.admin ? (
                 <div className={styles.flex}>
                     <img
                         src={"https://cdn-icons-png.flaticon.com/512/70/70310.png"}
@@ -80,7 +80,7 @@ const Photos = () => {
                 </div>
             ) : (
                 ""
-            )}
+            )} */}
 
             {photo ? (
                 <div className={styles.main}>
@@ -92,7 +92,7 @@ const Photos = () => {
                                     src={element}
                                     alt="image cloudinary"
                                 />
-                                {userContext && userContext.admin ? (
+                                {/* {userContext && userContext.admin ? (
                                     <Button
                                         onClick={() => {
                                             deletePhoto()
@@ -103,7 +103,7 @@ const Photos = () => {
                                     </Button>
                                 ) : (
                                     ""
-                                )}
+                                )} */}
                             </div>
                         </div>
                     ))}
