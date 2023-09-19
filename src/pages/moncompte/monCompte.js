@@ -5,7 +5,9 @@ import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import AuthContext from "../../context/AuthContext"
-import { AiOutlineEdit, AiOutlineLeft } from "react-icons/ai"
+import { AiOutlineEdit, AiOutlineRollback } from "react-icons/ai"
+
+import "./monCompte.scss"
 
 const MonCompte = () => {
     const [user, setUser] = useState({})
@@ -43,98 +45,137 @@ const MonCompte = () => {
             })
     }
 
-    const logout = () => {
-        localStorage.removeItem("user")
-        navigate("/")
-    }
-
     return (
-        <div>
-            <h1>Mon compte</h1>
-            {visible ? (
-                <div>
-                    <p>Mes infos</p>
-                    <AiOutlineEdit
-                        onClick={() => {
-                            setVisible(false)
-                        }}
-                    />
-                    {user ? (
-                        <div>
-                            <p>Prénom</p>
-                            <p>{user.prenom}</p>
-                            <br />
-                            <p>Name</p>
-                            <p>{user.name}</p>
-                            <br />
-                            <p>Nom d'utilisateur</p>
-                            <p>{user.username}</p>
-                            <br />
-                            <p>Sexe</p>
-                            <p>{user.sexe}</p>
-                            <br />
-                            <p>Adresse</p>
-                            <p>{user.adresse}</p>
-                            <br />
-                            <p>Code postal</p>
-                            <p>{user.code_postal}</p>
-                            <br />
-                            <Button title="Se déconnecter" onClick={() => logout()} />
-                        </div>
+        <div className="bloc">
+            <div className="container">
+                <div className="flex-title">
+                    <h1 className="title-compte">Mon compte</h1>
+
+                    {visible ? (
+                        <AiOutlineEdit
+                            size={30}
+                            color="#2e3192"
+                            onClick={() => {
+                                setVisible(false)
+                            }}
+                        />
                     ) : (
-                        <div>pas d'information</div>
+                        <AiOutlineRollback
+                            size={30}
+                            color="#2e3192"
+                            onClick={() => setVisible(true)}
+                        />
                     )}
                 </div>
-            ) : (
-                <div>
-                    <p>Modifiées mes infos</p>
-                    <AiOutlineLeft onClick={() => setVisible(true)} />
-                    <Input
-                        label="Prenom"
-                        className=""
-                        value={user.prenom || ""}
-                        onChange={e => {
-                            setUser({ ...user, prenom: e.target.value })
-                        }}
-                    />
-                    <Input
-                        label="Nom"
-                        className=""
-                        value={user.name || ""}
-                        onChange={e => {
-                            setUser({ ...user, name: e.target.value })
-                        }}
-                    />
-                    <Input
-                        label="Nom d'utilisateur"
-                        className=""
-                        value={user.username || ""}
-                        onChange={e => {
-                            setUser({ ...user, username: e.target.value })
-                        }}
-                    />
-                    <select
-                        onClick={e => {
-                            setUser({ ...user, sexe: e.target.value })
-                        }}
-                        name="pets"
-                        id="pet-select"
-                    >
-                        <option value="O">O</option>
-                        <option value="F">F</option>
-                        <option value="M">M</option>
-                    </select>
-                    <Input
-                        label="Adresse"
-                        className=""
-                        value={user.adresse || ""}
-                        onChange={e => {
-                            setUser({ ...user, adresse: e.target.value })
-                        }}
-                    />
-                    <Button title="Enregistrez les modifications" onClick={() => updateCompte()} />
-                </div>
-            )}
+                {visible ? (
+                    <div>
+                        {user ? (
+                            <div>
+                                <div className="moncompte-info">
+                                    <p>Prénom : {user.prenom}</p>
+                                    <br />
+                                    <p className="p-alignright">Nom de famille : {user.name}</p>
+                                    <br />
+                                </div>
+                                <div className="moncompte-info">
+                                    <p>Nom d'utilisateur : {user.username}</p>
+                                    <br />
+                                    <p className="p-alignright">
+                                        Sexe :{" "}
+                                        {user.sexe === "O"
+                                            ? "Autre"
+                                            : user.sexe === "F"
+                                            ? "Femme"
+                                            : user.sexe === "M"
+                                            ? "Homme"
+                                            : ""}
+                                    </p>
+                                    <br />
+                                </div>
+                                <div className="moncompte-info">
+                                    <p>Adresse : {user.adresse}</p>
+                                    <br />
+                                    <p className="p-alignright">Code postal : {user.code_postal}</p>
+                                    <br />
+                                </div>
+                            </div>
+                        ) : (
+                            <div>Pas d'informations</div>
+                        )}
+                        <div id="ct">
+                            <a id="a1"></a>
+                            <a id="a2"></a>
+                            <a href="#a1" id="l1">
+                                Mes billets
+                            </a>{" "}
+                            <a href="#a2" id="l2">
+                                Historique
+                            </a>{" "}
+                            <p class="p1">Mes billets...</p>
+                            <p class="p2">Historique</p>
+                        </div>
+                    </div>
+                ) : (
+                    <div>
+                        <div className="label">Prénom</div>
+                        <Input
+                            label=""
+                            className="input"
+                            value={user.prenom || ""}
+                            onChange={e => {
+                                setUser({ ...user, prenom: e.target.value })
+                            }}
+                        />
+                        <div className="label">Nom</div>
+                        <Input
+                            label=""
+                            className="input"
+                            value={user.name || ""}
+                            onChange={e => {
+                                setUser({ ...user, name: e.target.value })
+                            }}
+                        />
+                        <div className="label">Nom d'utilisateur</div>
+                        <Input
+                            label=""
+                            className="input"
+                            value={user.username || ""}
+                            onChange={e => {
+                                setUser({ ...user, username: e.target.value })
+                            }}
+                        />
+                        <label className="label">Sexe</label>
+                        <br />
+                        <select
+                            onClick={e => {
+                                setUser({ ...user, sexe: e.target.value })
+                            }}
+                            name="pets"
+                            id="pet-select"
+                        >
+                            <option value="O">O</option>
+                            <option value="F">F</option>
+                            <option value="M">M</option>
+                        </select>
+                        <div className="label">Adresse</div>
+                        <Input
+                            label=""
+                            className="input"
+                            value={user.adresse || ""}
+                            onChange={e => {
+                                setUser({ ...user, adresse: e.target.value })
+                            }}
+                        />
+                        <div className="col">
+                            <Button
+                                title="Enregistrez les modifications"
+                                onClick={() => updateCompte()}
+                                className="btn"
+                            />
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

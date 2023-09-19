@@ -1,0 +1,191 @@
+@import "../../css-config/mixins.scss";
+
+.bloc {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 100%;
+    background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
+
+    .container {
+        max-width: 1200px;
+        background: #fff;
+        width: 1200px;
+        height: 500px;
+        padding: 25px 40px 10px 40px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        background-color: floralwhite;
+        border-radius: 30px;
+
+        .title-compte {
+            text-align: center;
+            font-size: 33px;
+            font-weight: 600;
+            font-family: sans-serif;
+            background-image: linear-gradient(to right, #1bffff, #2e3192);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-right: 5px;
+        }
+
+        .flex-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-left: 40%;
+        }
+
+        .moncompte-info {
+            display: flex;
+            align-self: flex-end;
+            // padding: 10px 10px 10px 10px;
+        }
+
+        .p-alignright {
+        }
+
+        .text {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            font-family: sans-serif;
+            background-image: linear-gradient(to right, #1bffff, #2e3192);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .label {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        .input {
+            padding: 5px;
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .col {
+            display: inline-block;
+            text-align: center;
+
+            .btn {
+                cursor: pointer;
+                border-radius: 30px;
+                border-color: white;
+                font-size: large;
+                padding: 10px;
+                justify-content: center;
+            }
+            .btn-blue {
+                background: linear-gradient(115deg, #2e3192 50%, #1bffff 90%);
+                color: white;
+                font-weight: bold;
+            }
+            .btn-purple {
+                background-color: #2e3192;
+                color: white;
+            }
+        }
+
+        /* custom content */
+        .p1,
+        .p2 {
+            top: 50px;
+            left: 0;
+            width: 1000px;
+            position: absolute;
+            padding: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: #e0e0e0;
+            border-bottom: solid silver 1px;
+            border-left: solid silver 1px;
+            border-right: solid silver 1px;
+            -moz-box-shadow: inset 0px 0px 4px #8a838a;
+            -webkit-box-shadow: inset 0px 0px 4px #8a838a;
+            box-shadow: inset 0px 0px 4px #8a838a;
+        }
+        /* custom onglet */
+        a {
+            display: block;
+            width: 500px;
+            height: 50px;
+            float: left;
+            background-color: silver;
+            -webkit-border-radius: 20px 20px 0 0;
+            -moz-border-radius: 20px 20px 0 0;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            line-height: 50px;
+            border: solid rgba(31, 38, 45, 1);
+            background-color: rgba(31, 38, 45, 1);
+            text-decoration: none;
+            color: white;
+        }
+        /* centrage conteneur */
+        #ct {
+            position: relative;
+            width: 1000px; /* avec bordure des onglets */
+            margin-top: 20px;
+        }
+        /* cacher les ancres */
+        #a1,
+        #a2 {
+            display: none;
+        }
+        /* custom premier onglet */
+        #l2 {
+            opacity: 0.5;
+        }
+        /* opacité par défaut */
+        .p1 {
+            clear: both;
+            opacity: 1;
+        }
+        .p2 {
+            opacity: 0;
+        }
+        /* changement d'opacité */
+        #a1:target ~ .p1,
+        #a2:target ~ .p2 {
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
+            -ms-transition: all 1s;
+            -o-transition: all 1s;
+            transition: all 1s;
+            opacity: 1;
+        }
+
+        /* clique sur onglet 1 */
+        #a1:target ~ #l1 {
+            opacity: 1.5;
+        }
+        #a1:target ~ .p2 {
+            opacity: 0;
+        }
+        #a1:target ~ #l2 {
+            opacity: 0.5;
+        }
+
+        /* clique sur onglet 2 */
+        #a2:target ~ #l2 {
+            opacity: 1.5;
+        }
+        #a2:target ~ #l1 {
+            opacity: 0.5;
+        }
+        #a2:target ~ .p1 {
+            opacity: 0;
+        }
+    }
+}
