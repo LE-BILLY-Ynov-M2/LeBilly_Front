@@ -14,11 +14,11 @@
         color: rgba(255, 255, 255, 1);
         @include md {
             justify-content: space-between;
-            padding: 50px 0;
+            padding: 10px;
         }
 
         .col {
-            max-width: 300px;
+            max-width: 400px;
 
             .title {
                 margin-bottom: 20px;
@@ -58,8 +58,8 @@
             gap: 15px;
             @include md {
                 padding: 0;
-                height: 1px;
-                max-width: 1200px;
+                height: 40px;
+                max-width: 1000px;
                 margin: 0 auto;
                 flex-direction: row;
                 justify-content: space-between;
