@@ -4,6 +4,7 @@ import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
 import { FiCheck } from "react-icons/fi"
+import "./resetpassword.scss"
 
 const Resetpassword = () => {
     const [password, setPassword] = useState({})
@@ -61,55 +62,67 @@ const Resetpassword = () => {
     }
 
     return (
-        <div>
-            <p>Mettez à jour votre mot de passe</p>
-            <Input
-                label="Mot de passe"
-                type="password"
-                onChange={e => {
-                    setPassword({ ...password, new_password: e.target.value })
-                }}
-            />
-            {eightcaracmin ? (
-                <div>
-                    <FiCheck color="green" /> 8 caractères minimum
-                </div>
-            ) : (
-                <div>
-                    <FiCheck color="grey" /> 8 caractères minimum
-                </div>
-            )}
-            {oneNumberMin ? (
-                <div>
-                    <FiCheck color="green" /> 1 chiffre minimum
-                </div>
-            ) : (
-                <div>
-                    <FiCheck color="grey" /> 1 chiffre minimum
-                </div>
-            )}
-            {oneCaracSpeMin ? (
-                <div>
-                    <FiCheck color="green" /> 1 caractère spécial
-                </div>
-            ) : (
-                <div>
-                    <FiCheck color="grey" /> 1 caractère spécial
-                </div>
-            )}
-            {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
-                <Button
-                    title="Envoyer"
-                    onClick={e => {
-                        modifPassword(e)
+        <div className="bloc-reset">
+            <div className="container-reset">
+                <h1>Modifiez votre mot de passe</h1>
+                <br />
+                <br />
+                <div className="label-reset">Mot de passe</div>
+                <Input
+                    label=""
+                    className="input-reset"
+                    type="password"
+                    onChange={e => {
+                        setPassword({ ...password, new_password: e.target.value })
                     }}
                 />
-            ) : (
-                <>
-                    <Button title="Envoyer" />
-                </>
-            )}
-            {isValid ? <p>{validMessage}</p> : ""}
+                <div className="check-reset">
+                    {eightcaracmin ? (
+                        <div>
+                            <FiCheck color="green" /> 8 caractères minimum
+                        </div>
+                    ) : (
+                        <div>
+                            <FiCheck color="grey" /> 8 caractères minimum
+                        </div>
+                    )}
+                    {oneNumberMin ? (
+                        <div>
+                            <FiCheck color="green" /> 1 chiffre minimum
+                        </div>
+                    ) : (
+                        <div>
+                            <FiCheck color="grey" /> 1 chiffre minimum
+                        </div>
+                    )}
+                    {oneCaracSpeMin ? (
+                        <div>
+                            <FiCheck color="green" /> 1 caractère spécial
+                        </div>
+                    ) : (
+                        <div>
+                            <FiCheck color="grey" /> 1 caractère spécial
+                        </div>
+                    )}
+                </div>
+                <div className="col-reset">
+                    {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
+                        <Button
+                            title="Envoyer"
+                            className="btn btn-blue"
+                            onClick={e => {
+                                modifPassword(e)
+                            }}
+                        />
+                    ) : (
+                        <>
+                            <Button title="Envoyer" />
+                        </>
+                    )}
+
+                    {isValid ? <p>{validMessage}</p> : ""}
+                </div>
+            </div>
         </div>
     )
 }

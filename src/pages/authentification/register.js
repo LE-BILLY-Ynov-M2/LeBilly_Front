@@ -202,7 +202,7 @@ const Register = () => {
                     )}
                     <br />
 
-                    <div className="btn-reg">
+                    <div className="col-reg">
                         {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
                             <Button
                                 title="S'inscrire"
