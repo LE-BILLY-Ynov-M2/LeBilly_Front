@@ -3,8 +3,7 @@ import userService from "../../services/user.service"
 import Button from "../../components/others/button/button"
 import { BsXLg } from "react-icons/bs"
 import AuthContext from "../../context/AuthContext"
-
-import styles from "./photos.module.scss"
+import "./photos.scss"
 import photoService from "../../services/photo.service"
 
 const Photos = () => {
@@ -24,93 +23,23 @@ const Photos = () => {
             })
     }, [])
 
-    // const deletePhoto = () => {}
-
-    // const handleFileSelected = e => {
-    //     setIsChangeUploadFile(true)
-    //     setUploadFile(e.target.files[0])
-    // }
-    // useEffect(() => {
-    //     if (isChangeUploadFile) {
-    //         handleSubmit()
-    //         setIsChangeUploadFile(false)
-    //     }
-    // }, [uploadFile])
-
-    // const handleSubmit = async () => {
-    //     console.log(uploadFile, "file")
-    //     const formData = new FormData()
-    //     formData.append("file", uploadFile)
-    //     formData.append("upload_preset", "ml_default")
-    //     console.log("tt")
-    //     console.log(formData)
-    //     console.log("/tt")
-    //     photoService
-    //         .addPhoto(uploadFile)
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    //         .catch(err => console.log(err))
-    //     // const response = await fetch(`http://localhost:5500/accounts/upload_photo/`, {
-    //     //     method: "POST",
-    //     //     body: { file: formData },
-    //     // })
-    //     // const data = await response.json()
-    //     // console.log("data")
-    //     // console.log(data)
-    // }
-
     return (
-        <div>
-            <h1 className={styles.h1}>Souvenirs</h1>
-            {/* {userContext && userContext.admin ? (
-                <div className={styles.flex}>
-                    <img
-                        src={"https://cdn-icons-png.flaticon.com/512/70/70310.png"}
-                        alt="ajouter une photo"
-                        className={styles.img}
-                    />
-                    <input
-                        className={styles.addPhoto}
-                        id="file"
-                        //className={styles.inputfile}
-                        type="file"
-                        onChange={e => handleFileSelected(e)}
-                    />
-                </div>
-            ) : (
-                ""
-            )} */}
+        <div className="bloc-info">
+            <div className="container-info">
+                <h1 className="title-info">Souvenirs</h1>
 
-            {photo ? (
-                <div className={styles.main}>
-                    {photo.map(element => (
-                        <div className={styles.divmain} key={element}>
-                            <div className={styles.divsousmain}>
-                                <img
-                                    className={styles.image}
-                                    src={element}
-                                    alt="image cloudinary"
-                                />
-                                {/* {userContext && userContext.admin ? (
-                                    <Button
-                                        onClick={() => {
-                                            deletePhoto()
-                                        }}
-                                        className={styles.button}
-                                    >
-                                        <BsXLg size={30} />
-                                    </Button>
-                                ) : (
-                                    ""
-                                )} */}
+                {photo ? (
+                    <div className="bloc-photos">
+                        {photo.map(element => (
+                            <div key={element}>
+                                <img src={element} alt="image cloudinary" />
                             </div>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <div></div>
-            )}
+                        ))}
+                    </div>
+                ) : (
+                    <div></div>
+                )}
+            </div>
         </div>
     )
 }
