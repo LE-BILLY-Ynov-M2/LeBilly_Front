@@ -124,6 +124,7 @@ const App = () => {
                     <Header />
                     <Routes>
                         <Route path="/" element={<Main />} exact />
+                        <Route path="/event/:artiste/:dateDebut" element={<EventPage />} />
                         <Route path="/event" element={<Event />} />
                         <Route path="/photos" element={<Photos />} />
                         <Route path="/login" element={<Login />} />
