@@ -12,33 +12,22 @@ const Header = () => {
                     <li>
                         <Link to="/">Accueil</Link>
                     </li>
-                    <li>Programme</li>
-                    {userContext && userContext.admin ? (
-                        ""
-                    ) : (
-                        <li>
-                            <Link to="/infosPratique">Infos pratiques (Accès)</Link>
-                        </li>
-                    )}
-                    {userContext && userContext.admin ? (
-                        ""
-                    ) : (
-                        <li>
-                            <Link to="/presentation">Qui sommes-nous ?</Link>
-                        </li>
-                    )}
+                    <li>Programmation</li>
+
+                    <li>
+                        <Link to="/infosPratique">Infos pratiques (Accès)</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/presentation">Qui sommes-nous ?</Link>
+                    </li>
                     <li>
                         <Link to="/photos">Photos</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/event">Event</Link>
-                    </li>
-                    <li>Recherche</li>
-                    {userContext && userContext.admin ? (
-                        <li className="account">
-                            <Link to="/listeClients">Liste des utlisateurs</Link>
-                        </li>
-                    ) : userContext && userContext.token && !userContext.admin ? (
+                    </li> */}
+                    {userContext && userContext.token ? (
                         <li className="account">
                             <Link to="/monCompte">Mon compte</Link>
                         </li>

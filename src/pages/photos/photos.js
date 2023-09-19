@@ -32,7 +32,7 @@ const Photos = () => {
                     <div className="bloc-photos">
                         {photo.map(element => (
                             <div key={element}>
-                                <img src={element} alt="image cloudinary" />
+                                <img src={element} className="photos" alt="image cloudinary" />
                             </div>
                         ))}
                     </div>

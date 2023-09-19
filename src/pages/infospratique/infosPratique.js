@@ -17,17 +17,18 @@ const InfosPratique = () => {
                 <h3 className="h3">
                     Pour votre information, voici quelques durées moyennes de trajet :
                 </h3>
-                <p className="cities">
-                    <div>Saint-Brieuc : 30min</div>
-                    <br />
-                    <div>Brest : 1h20min</div>
-                    <br />
-                    <div>Rennes : 1h30min</div>
-                    <br />
-                    <div>Saint-Malo : 1h30min</div>
-                    <br />
-                    <div>Vannes : 1h50min</div>
-                </p>
+                <div className="cities">
+                    <div>
+                        <p className="p">Saint-Brieuc : 30min</p>
+                        <p className="p">Brest : 1h20min</p>
+                        <p className="p">Rennes : 1h30min</p>
+                    </div>
+                    <div>
+                        <p className="p">Saint-Malo : 1h30min</p>
+                        <p className="p">Vannes : 1h50min</p>
+                        <p className="p">Nantes : 2h40min</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
