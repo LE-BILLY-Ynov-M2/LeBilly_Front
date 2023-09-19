@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Header from "./Header"
 import Footer from "./components/Footer/Footer"
 import "./App.scss"
@@ -12,6 +12,7 @@ import Login from "./pages/authentification/login"
 import Register from "./pages/authentification/register"
 import VerifCode from "./pages/authentification/verifCode"
 import { AuthContextProvider } from "./context/AuthContext"
+import EventPage from './EventPage';
 
 // export default function Partners() {
 //   const partners = [
@@ -37,6 +38,14 @@ const Main = () => {
     >
         {" "}
     </script>
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+      const storedEvents = localStorage.getItem('events');
+      if (storedEvents) {
+        setEvents(JSON.parse(storedEvents));
+      }
+    }, []);
     return (
         <main className="main-content">
             <section className="title-section">
@@ -58,6 +67,20 @@ const Main = () => {
                     <h2>Événements à venir</h2>
                     <span></span>
                 </div>
+                <div className="event-cards">
+    {events.map((event, index) => (
+      <div className="event-card" key={index}>
+           <h1>{event.artiste}</h1>
+           <h3>{event.dateDebut}</h3>
+        <img src={event.image} alt={event.name} style={{ width: "250px", height: "auto" }}/>
+     
+        <p>{event.date}</p>
+        <Link to={`/event/${encodeURIComponent(event.artiste)}/${encodeURIComponent(event.dateDebut)}`}>
+              <button className="btn-primary">Réserver</button>
+            </Link>
+      </div>
+    ))}
+  </div>
                 <button className="btn-primary">Voir plus</button>
             </section>
             <section className="newsletter">
