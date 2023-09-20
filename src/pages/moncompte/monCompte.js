@@ -14,13 +14,30 @@ const MonCompte = () => {
     const [user, setUser] = useState({})
     const [visible, setVisible] = useState(true)
     const { userContext } = useContext(AuthContext)
+    const [billets, setBillets] = useState([])
+    const [billetsHistorique, setBilletsHistorique] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         userService
             .getUser(userContext.id)
             .then(data => {
                 setUser(data)
-                console.log(data)
+                let dateToday = new Date()
+
+                // for (let i = 0; i < data.evenements; i++) {
+                //     if (
+                //         Number(i.date_end.substr(0, 4)) >=
+                //             Number(dateToday.getFullYear().toString()) &&
+                //         Number(i.date_end.substr(5, 2)) >=
+                //             Number(dateToday.getMonth().toString()) + 1 &&
+                //         Number(i.date_end.substr(8, 2)) >= Number(dateToday.getDate().toString())
+                //     ) {
+                //         setBillets([...billets, i])
+                //     } else {
+                //         setBilletsHistorique([...billetsHistorique, i])
+                //     }
+                // }
             })
             .catch(err => {
                 console.log(err)
@@ -128,8 +145,55 @@ const MonCompte = () => {
                             <a href="#a2" id="l2">
                                 Historique
                             </a>{" "}
-                            <p class="p1">Mes billets...</p>
-                            <p class="p2">Historique</p>
+                            {
+                                // <p class="p1">Mes billets...</p> /*
+                                // <p class="p2">Historique</p>
+                            }
+                            <div class="div1">
+                                {billets ? (
+                                    billets.map(element => (
+                                        <div class="div2" key={element.id}>
+                                            <Button
+                                                onClick={() => {
+                                                    navigate("/programmation/" + element.id)
+                                                }}
+                                            >
+                                                <img
+                                                    className="photoArtiste"
+                                                    src={element.photo_artist}
+                                                    alt="Photo artiste"
+                                                />
+
+                                                <p class="p1">oooooooooooo</p>
+                                                <p>{element.name_artist}</p>
+                                            </Button>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div class="div2">
+                                        <p class="p1">Pas de billets</p>
+                                        <h1>
+                                            jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+                                        </h1>
+                                    </div>
+                                )}
+                            </div>
+                            {billetsHistorique ? (
+                                billetsHistorique.map(element => (
+                                    <div class="p2" key={element.id}>
+                                        <img
+                                            className="photoArtiste"
+                                            src={element.photo_artist}
+                                            alt="Photo artiste"
+                                        />
+                                        <p>{element.name_artist}</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <div class="p2">
+                                    <p>Pas d'historique</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ) : (
