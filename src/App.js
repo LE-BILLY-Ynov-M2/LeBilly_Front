@@ -258,7 +258,19 @@ const App = () => {
                         <Route path="/errorPaiement" element={<ErrorPaiement />} />
                     </Routes>
                     <Footer />
-                    <ToastContainer />
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="colored"
+                        toastStyle={{ backgroundColor: "#20232a" }}
+                    />
                 </div>
             </Router>
         </AuthContextProvider>
