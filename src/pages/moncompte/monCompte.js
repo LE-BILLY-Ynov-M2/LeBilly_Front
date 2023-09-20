@@ -102,9 +102,9 @@ const MonCompte = () => {
                     )}
                 </div>
                 {visible ? (
-                    <div>
+                    <>
                         {user ? (
-                            <div>
+                            <>
                                 <div className="moncompte-info">
                                     <p>Prénom : {user.prenom}</p>
                                     <br />
@@ -132,7 +132,7 @@ const MonCompte = () => {
                                     <p className="p-alignright">Code postal : {user.code_postal}</p>
                                     <br />
                                 </div>
-                            </div>
+                            </>
                         ) : (
                             <div>Pas d'informations</div>
                         )}
@@ -195,7 +195,7 @@ const MonCompte = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </>
                 ) : (
                     <div>
                         <div className="label">Prénom</div>
@@ -207,6 +207,7 @@ const MonCompte = () => {
                                 setUser({ ...user, prenom: e.target.value })
                             }}
                         />
+                        <br />
                         <div className="label">Nom</div>
                         <Input
                             label=""
@@ -216,6 +217,7 @@ const MonCompte = () => {
                                 setUser({ ...user, name: e.target.value })
                             }}
                         />
+                        <br />
                         <div className="label">Nom d'utilisateur</div>
                         <Input
                             label=""
@@ -225,6 +227,7 @@ const MonCompte = () => {
                                 setUser({ ...user, username: e.target.value })
                             }}
                         />
+                        <br />
                         <label className="label">Sexe</label>
                         <br />
                         <select
@@ -234,10 +237,13 @@ const MonCompte = () => {
                             name="pets"
                             id="pet-select"
                         >
-                            <option value="O">O</option>
-                            <option value="F">F</option>
-                            <option value="M">M</option>
+                            <option value=""></option>
+                            <option value="O">Ne se prononce pas</option>
+                            <option value="F">Femme</option>
+                            <option value="M">Homme</option>
                         </select>
+                        <br />
+                        <br />
                         <div className="label">Adresse</div>
                         <Input
                             label=""
