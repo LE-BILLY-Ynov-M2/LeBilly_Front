@@ -72,14 +72,16 @@ const Login = () => {
                 />
                 <br />
                 <div className="label">Mot de passe</div>
-                <Input
-                    label=""
-                    type="password"
-                    className="input"
-                    onChange={e => {
-                        setUser({ ...user, password: e.target.value })
-                    }}
-                />
+                <div className="inputPassword">
+                    <Input
+                        label=" "
+                        type="password"
+                        className="input"
+                        onChange={e => {
+                            setUser({ ...user, password: e.target.value })
+                        }}
+                    />
+                </div>
 
                 <div className="col">
                     <Button

@@ -107,13 +107,19 @@
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-            background-color: #e0e0e0;
+            background-color: #d71616;
             border-bottom: solid silver 1px;
             border-left: solid silver 1px;
             border-right: solid silver 1px;
             -moz-box-shadow: inset 0px 0px 4px #8a838a;
             -webkit-box-shadow: inset 0px 0px 4px #8a838a;
             box-shadow: inset 0px 0px 4px #8a838a;
+            margin-top: 10px;
+        }
+
+        .photoArtiste {
+            width: 100px;
+            height: 100px;
         }
         /* custom onglet */
         a {
