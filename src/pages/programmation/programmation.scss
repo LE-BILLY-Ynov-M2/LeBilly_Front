@@ -36,17 +36,67 @@
 
             .billy {
                 position: relative;
-                width: 100%;
+                width: 80%;
                 margin: auto;
+                padding-top: 2%;
                 overflow: hidden;
                 display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
                 color: transparent;
+                cursor: pointer;
+
+                .inner-container {
+                    position: relative;
+                    width: 300px;  // La même largeur que l'image
+                    height: 300px;  // La même hauteur que l'image
+                    margin: auto;
+                  }
 
                 .imageEvent {
-                    width: 200px;
-                    height: 200px;
+                    width: 300px;
+                    height: 300px;
                     cursor: pointer;
                     margin: auto;
+                    transition: transform 0.2s ease-in-out;
+                    border-radius: 20px;
+                }
+                .artiste-name {
+                    font-size: 2em;
+                    cursor: pointer;
+                    position: absolute;
+                    top:50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0;
+                    transition: opacity 0.2s ease-in-out;
+                }
+
+                .artiste-name2 {
+                    color: #61dafb;
+                    text-shadow: 2px 2px #20232a;
+                    font-size: 3em;
+                    cursor: pointer;
+                }
+            
+                .event-button:hover .imageEvent {
+                    transform: scale(1.1);
+                    opacity: 0.2;
+                    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+                }
+                
+                .event-button:hover .artiste-name {
+                    opacity: 1;
+                }
+                .event-button {
+                    flex-basis: calc(50% - 10px);
+                    margin-bottom: 20px;
+                    width: 400px;
+                    border: none;
+                    position: relative; /* Ajoutez le positionnement relatif */
+                }
+                .image-container {
+                    position: relative; /* Ajoutez le positionnement relatif */
                 }
             }
         }
