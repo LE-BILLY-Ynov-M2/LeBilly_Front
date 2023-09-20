@@ -3,13 +3,11 @@ import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import "./forgotPassword.scss"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState({})
-    const [error, setError] = useState(false)
-    const [errorMessage, setErrorMessage] = useState("")
-    const [valid, setValid] = useState(false)
-    const [validMessage, setValidMessage] = useState("")
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -17,13 +15,27 @@ const ForgotPassword = () => {
             .forgotPassword(email)
             .then(data => {
                 if (data.detail === "E-mail envoyé.") {
-                    setValid(true)
-                    setError(false)
-                    setValidMessage(data.detail)
+                    toast.success(data.detail, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 } else {
-                    setValid(false)
-                    setError(true)
-                    setErrorMessage(data.detail)
+                    toast.error(data.detail, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 }
 
                 console.log(data)
@@ -62,20 +74,6 @@ const ForgotPassword = () => {
                     />
                 </div>
             </div>
-            {valid ? (
-                <div>
-                    <p>{validMessage}</p>
-                </div>
-            ) : (
-                ""
-            )}
-            {error ? (
-                <div>
-                    <p>{errorMessage}</p>
-                </div>
-            ) : (
-                ""
-            )}
         </div>
     )
 }

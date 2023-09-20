@@ -21,8 +21,7 @@ const Paybutton = ({ event }) => {
         // Afficher l'URL externe pendant 30 secondes
         // window.location.replace("https://www.youtube.com/watch?v=AvK6HHfo-gk")
         // xx()
-        const token =
-            "pk_test_51KHlAcApycYj76sxArdTghbkN5Y3RZLvz8Q6seu4PLHU9h8NjtAckJGGQxhPsTJO5Ad4SuH8Ix3MA0t39brgHOBt00MZ8UpbVV"
+        const token = "c70f191c-d31b-4530-8d04-f8c81ce10b56"
         CheckoutService.createCheckoutSession(token, event, 1)
             .then(res => {
                 window.location.replace(res.message.receipt_url)

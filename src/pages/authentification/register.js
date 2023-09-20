@@ -2,24 +2,17 @@ import React, { useState, useEffect } from "react"
 import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
-import { useNavigate } from "react-router-dom"
 import { FiCheck } from "react-icons/fi"
+import styles from "./register.module.scss"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import styles from "./register.scss"
 
 const Register = () => {
     const [user, setUser] = useState({})
-    const [code, setCode] = useState({})
-    const [isVisible, setIsVisible] = useState(true)
-    const [error, setError] = useState(false)
-    const [errorMessage, setErrorMessage] = useState("")
-    const [valid, setValid] = useState(false)
-    const [validMessage, setValidMessage] = useState("")
-    const [errorCode, setErrorCode] = useState(false)
-    const [errorCodeMessage, setErrorCodeMessage] = useState("")
     const [eightcaracmin, setEightcaracmin] = useState(false)
     const [oneNumberMin, setOneNumberMin] = useState(false)
     const [oneCaracSpeMin, setOneCaracSpeMin] = useState(false)
-    const navigate = useNavigate()
 
     const handlesubmit = e => {
         e.preventDefault()
@@ -29,22 +22,54 @@ const Register = () => {
                 console.log("data, register")
                 console.log(data)
                 if (data.message) {
-                    setValid(true)
-                    setError(false)
-                    setValidMessage(data.message)
+                    toast.success("Un mail vous a été envoyé par mail", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 } else {
-                    setError(true)
-                    setValid(false)
                     if (data.email[0] === "Un objet account avec ce champ Email existe déjà.") {
-                        console.log("ffffff")
-                        setErrorMessage(data.email[0])
+                        toast.error(data.email[0], {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        })
                     } else {
-                        console.log("rrrrrrrr")
-                        setErrorMessage("Tous les champs sont obligatoires")
+                        toast.error("Tous les champs sont obligatoires", {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        })
                     }
                 }
             })
-            .catch(err => setErrorMessage("Tous les champs sont obligatoires"))
+            .catch(err =>
+                toast.error("Tous les champs sont obligatoires", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                }),
+            )
     }
 
     useEffect(() => {
@@ -71,6 +96,7 @@ const Register = () => {
     }, [user.password])
 
     return (
+
         <div className="bloc-reg">
             {isVisible ? (
                 <div className="container-reg">
@@ -165,12 +191,14 @@ const Register = () => {
                         }}
                     />
                     {/* <Input
+
                     label="Confirmer mot de passe"
                     type="password"
                     onChange={e => {
                         setUser({ ...user, confirmPassword: e.target.value })
                     }}
                 /> */}
+
                     <br />
 
                     {eightcaracmin ? (
@@ -231,11 +259,32 @@ const Register = () => {
                     ) : (
                         ""
                     )}
+
                 </div>
             ) : (
                 <div>
-                    <p>Un code vous a été envoyé par mail.</p>
+                    <FiCheck color="grey" /> 1 chiffre minimum
                 </div>
+            )}
+            {oneCaracSpeMin ? (
+                <div>
+                    <FiCheck color="green" /> 1 caractère spécial
+                </div>
+            ) : (
+                <div>
+                    <FiCheck color="grey" /> 1 caractère spécial
+                </div>
+            )}
+            {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
+                <Button
+                    title="S'inscrire"
+                    className={styles.buttonblue}
+                    onClick={e => handlesubmit(e)}
+                />
+            ) : (
+                <>
+                    <Button title="S'inscrire" className={styles.buttongrey} />
+                </>
             )}
         </div>
     )

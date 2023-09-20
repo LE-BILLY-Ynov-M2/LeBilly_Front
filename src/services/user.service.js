@@ -9,6 +9,7 @@ export default {
         }).then(res => res.json())
     },
     register(user) {
+        console.log(user)
         return fetch(`http://localhost:5500/accounts/create-account/`, {
             method: "POST",
             headers: {
