@@ -53,6 +53,28 @@
             background-color: #efeaea;
         }
 
+        .col-reset {
+            display: inline-block;
+            margin: 10px 2.5% 10px 7%;
+            text-align: center;
+            margin-left: 42.5%;
+
+            button {
+                cursor: pointer;
+                border-radius: 30px;
+                border-color: white;
+                font-size: large;
+                padding: 10px;
+                margin: 5%;
+                justify-content: center;
+            }
+            .btn-blue {
+                background: linear-gradient(115deg, #2e3192 50%, #1bffff 90%);
+                color: white;
+                font-weight: bold;
+            }
+        }
+
         .col-reg {
             display: inline-block;
             margin: 10px 2.5% 10px 7%;

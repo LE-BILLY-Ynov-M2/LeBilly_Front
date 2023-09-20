@@ -3,10 +3,9 @@ import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import { FiCheck } from "react-icons/fi"
-import styles from "./register.module.scss"
+import styles from "./register.scss"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import styles from "./register.scss"
 
 const Register = () => {
     const [user, setUser] = useState({})
@@ -93,104 +92,105 @@ const Register = () => {
                 setOneCaracSpeMin(false)
             }
         }
+        console.log(eightcaracmin)
+        console.log(oneNumberMin)
+        console.log(oneCaracSpeMin)
     }, [user.password])
 
     return (
-
         <div className="bloc-reg">
-            {isVisible ? (
-                <div className="container-reg">
-                    <div className="text-reg">Veuillez renseigner vos informations</div>
-                    <br />
-                    <br />
-                    <div className="label-reg">Nom</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        required
-                        onChange={e => {
-                            setUser({ ...user, name: e.target.value })
-                        }}
-                    />
-                    <br />
-                    <div className="label-reg">Prénom</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        required
-                        onChange={e => {
-                            setUser({ ...user, prenom: e.target.value })
-                        }}
-                    />
-                    <br />
-                    <div className="label-reg">Pseudo</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        required
-                        onChange={e => {
-                            setUser({ ...user, username: e.target.value })
-                        }}
-                    />
-                    <br />
-                    <label>Sexe</label>
-                    <br />
-                    <select
-                        onClick={e => {
-                            setUser({ ...user, sexe: e.target.value })
-                        }}
-                        name="pets"
-                        className="input-reg"
-                        id="pet-select"
-                    >
-                        <option value=""> </option>
-                        <option value="M">Homme</option>
-                        <option value="F">Femme</option>
-                        <option value="O">Ne se prenonce pas</option>
-                    </select>
-                    <br />
-                    <br />
-                    <div className="label-reg">Code postal</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        required
-                        onChange={e => {
-                            setUser({ ...user, code_postal: e.target.value })
-                        }}
-                    />
-                    <br />
-                    <div className="label-reg">Adresse</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        required
-                        onChange={e => {
-                            setUser({ ...user, adresse: e.target.value })
-                        }}
-                    />
-                    <br />
-                    <div className="label-reg">E-mail</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        required
-                        onChange={e => {
-                            setUser({ ...user, email: e.target.value })
-                        }}
-                    />
-                    <br />
-                    <div className="label-reg">Mot de passe</div>
-                    <Input
-                        label=""
-                        className="input-reg"
-                        type="password"
-                        required={true}
-                        onChange={e => {
-                            setUser({ ...user, password: e.target.value })
-                        }}
-                    />
-                    {/* <Input
+            <div className="container-reg">
+                <div className="text-reg">Veuillez renseigner vos informations</div>
+                <br />
+                <br />
+                <div className="label-reg">Nom</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    required
+                    onChange={e => {
+                        setUser({ ...user, name: e.target.value })
+                    }}
+                />
+                <br />
+                <div className="label-reg">Prénom</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    required
+                    onChange={e => {
+                        setUser({ ...user, prenom: e.target.value })
+                    }}
+                />
+                <br />
+                <div className="label-reg">Pseudo</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    required
+                    onChange={e => {
+                        setUser({ ...user, username: e.target.value })
+                    }}
+                />
+                <br />
+                <label>Sexe</label>
+                <br />
+                <select
+                    onClick={e => {
+                        setUser({ ...user, sexe: e.target.value })
+                    }}
+                    name="pets"
+                    className="input-reg"
+                    id="pet-select"
+                >
+                    <option value=""> </option>
+                    <option value="M">Homme</option>
+                    <option value="F">Femme</option>
+                    <option value="O">Ne se prenonce pas</option>
+                </select>
+                <br />
+                <br />
+                <div className="label-reg">Code postal</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    required
+                    onChange={e => {
+                        setUser({ ...user, code_postal: e.target.value })
+                    }}
+                />
+                <br />
+                <div className="label-reg">Adresse</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    required
+                    onChange={e => {
+                        setUser({ ...user, adresse: e.target.value })
+                    }}
+                />
+                <br />
+                <div className="label-reg">E-mail</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    required
+                    onChange={e => {
+                        setUser({ ...user, email: e.target.value })
+                    }}
+                />
+                <br />
+                <div className="label-reg">Mot de passe</div>
+                <Input
+                    label=""
+                    className="input-reg"
+                    type="password"
+                    required={true}
+                    onChange={e => {
+                        setUser({ ...user, password: e.target.value })
+                    }}
+                />
+                {/* <Input
 
                     label="Confirmer mot de passe"
                     type="password"
@@ -199,93 +199,51 @@ const Register = () => {
                     }}
                 /> */}
 
-                    <br />
+                <br />
 
-                    {eightcaracmin ? (
-                        <div>
-                            <FiCheck color="green" /> 8 caractères minimum
-                        </div>
-                    ) : (
-                        <div>
-                            <FiCheck color="grey" /> 8 caractères minimum
-                        </div>
-                    )}
-                    {oneNumberMin ? (
-                        <div>
-                            <FiCheck color="green" /> 1 chiffre minimum
-                        </div>
-                    ) : (
-                        <div>
-                            <FiCheck color="grey" /> 1 chiffre minimum
-                        </div>
-                    )}
-                    {oneCaracSpeMin ? (
-                        <div>
-                            <FiCheck color="green" /> 1 caractère spécial
-                        </div>
-                    ) : (
-                        <div>
-                            <FiCheck color="grey" /> 1 caractère spécial
-                        </div>
-                    )}
-                    <br />
-
-                    <div className="col-reg">
-                        {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
-                            <Button
-                                title="S'inscrire"
-                                className={styles.buttonblue}
-                                onClick={e => handlesubmit(e)}
-                            />
-                        ) : (
-                            <>
-                                <Button title="S'inscrire" className={styles.buttongrey} />
-                            </>
-                        )}
+                {eightcaracmin ? (
+                    <div>
+                        <FiCheck color="green" /> 8 caractères minimum
                     </div>
+                ) : (
+                    <div>
+                        <FiCheck color="grey" /> 8 caractères minimum
+                    </div>
+                )}
+                {oneNumberMin ? (
+                    <div>
+                        <FiCheck color="green" /> 1 chiffre minimum
+                    </div>
+                ) : (
+                    <div>
+                        <FiCheck color="grey" /> 1 chiffre minimum
+                    </div>
+                )}
+                {oneCaracSpeMin ? (
+                    <div>
+                        <FiCheck color="green" /> 1 caractère spécial
+                    </div>
+                ) : (
+                    <div>
+                        <FiCheck color="grey" /> 1 caractère spécial
+                    </div>
+                )}
+                <br />
 
-                    {error ? (
-                        <div>
-                            <p>error</p>
-                            <p>{errorMessage}</p>
-                        </div>
+                <div className="col-reset">
+                    {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
+                        <Button
+                            title="S'inscrire"
+                            className="btn btn-blue"
+                            onClick={e => handlesubmit(e)}
+                        />
                     ) : (
-                        ""
+                        <>
+                            <Button title="S'inscrire" />
+                        </>
                     )}
-                    {valid ? (
-                        <div>
-                            <p>{validMessage}</p>
-                        </div>
-                    ) : (
-                        ""
-                    )}
-
                 </div>
-            ) : (
-                <div>
-                    <FiCheck color="grey" /> 1 chiffre minimum
-                </div>
-            )}
-            {oneCaracSpeMin ? (
-                <div>
-                    <FiCheck color="green" /> 1 caractère spécial
-                </div>
-            ) : (
-                <div>
-                    <FiCheck color="grey" /> 1 caractère spécial
-                </div>
-            )}
-            {eightcaracmin && oneNumberMin && oneCaracSpeMin ? (
-                <Button
-                    title="S'inscrire"
-                    className={styles.buttonblue}
-                    onClick={e => handlesubmit(e)}
-                />
-            ) : (
-                <>
-                    <Button title="S'inscrire" className={styles.buttongrey} />
-                </>
-            )}
+            </div>
         </div>
     )
 }
