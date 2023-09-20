@@ -1,24 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
+import AuthContext from "./context/AuthContext"
+import { AiOutlineLogout } from "react-icons/ai"
+import { useNavigate } from "react-router-dom"
 
 const Header = () => {
-    return (
-      <header>
-        <nav className="menu">
-          <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li>Programme</li>
-            <li>Infos pratiques (Accès)</li>
-            <li>Qui sommes-nous ?</li>
-            <li>Photos</li>
-            <li><Link to="/event">Event</Link></li>
-            <li>F.A.Q</li>
-            <li>Recherche</li>
-            <li className="account">Mon compte</li>
-          </ul>
-        </nav>
-      </header>
-    );
-  };
+    const { userContext } = useContext(AuthContext)
+    const navigate = useNavigate()
 
-export default Header;
+    const logout = () => {
+        localStorage.removeItem("user")
+        navigate("/")
+        window.location.reload()
+    }
+
+    return (
+        <header>
+            <nav className="menu">
+                <ul>
+                    <li>
+                        <Link to="/">Accueil</Link>
+                    </li>
+                    <li>
+                        <Link to="/programmation">Programmation</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/infosPratique">Infos pratiques (Accès)</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/presentation">Qui sommes-nous ?</Link>
+                    </li>
+                    <li>
+                        <Link to="/photos">Photos</Link>
+                    </li>
+                    <li><Link to="/AdminDashboard">Dashboard</Link></li>
+                    {/* <li>
+                        <Link to="/event">Event</Link>
+                    </li> */}
+                    {userContext && userContext.token ? (
+                        <li className="account">
+                            <Link to="/monCompte">Mon compte</Link>
+                        </li>
+                    ) : (
+                        <li className="account">
+                            <Link to="/login">Se connecter</Link>
+                        </li>
+                    )}
+                    {userContext && userContext.token ? (
+                        <AiOutlineLogout
+                            size={30}
+                            color="#61dafb"
+                            onClick={() => {
+                                logout()
+                            }}
+                            className="logout"
+                        />
+                    ) : (
+                        ""
+                    )}
+                </ul>
+            </nav>
+        </header>
+    )
+}
+
+export default Header
