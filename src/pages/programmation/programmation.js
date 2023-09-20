@@ -72,6 +72,7 @@ const Programmation = () => {
                                                    <h2 className="artiste-name" dangerouslySetInnerHTML={{ __html: formatDate(element.date_start, element.date_end).replace('\n', '<br>') }}></h2>
                                                    </div>
                                                    <h2 className="artiste-name2">{element.name_artist}</h2>
+                                                   <h2 className="artiste-name2">{element.nbre_place}</h2>
                                                    </div>
                                           </Button>
                                       </div>
