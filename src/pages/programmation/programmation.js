@@ -21,24 +21,32 @@ const Programmation = () => {
     }
 
     return (
-        <div>
-            {events
-                ? events.map(element => (
-                      <div key={element.id}>
-                          <Button
-                              onClick={() => {
-                                  directionIdEvent(element.id)
-                              }}
-                          >
-                              <img
-                                  className="imageEvent"
-                                  src={element.photo_artist}
-                                  alt="photo artiste"
-                              />
-                          </Button>
-                      </div>
-                  ))
-                : ""}
+        <div className="bloc-prog">
+            <div className="container-prog">
+                <div className="row-prog">
+                    <div className="col-md-6">
+                        <div className="billy">
+                            {events
+                                ? events.map(element => (
+                                      <div key={element.id}>
+                                          <Button
+                                              onClick={() => {
+                                                  directionIdEvent(element.id)
+                                              }}
+                                          >
+                                              <img
+                                                  className="imageEvent"
+                                                  src={element.photo_artist}
+                                                  alt="photo artiste"
+                                              />
+                                          </Button>
+                                      </div>
+                                  ))
+                                : ""}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
