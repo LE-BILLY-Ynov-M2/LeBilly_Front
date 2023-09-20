@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import Button from "../others/button/button"
 import CheckoutService from "../../services/checkout.service"
+import '../../ticket.scss';
+
 
 const Paybutton = ({ event }) => {
     const [showExternalContent, setShowExternalContent] = useState(true)
@@ -33,7 +35,14 @@ const Paybutton = ({ event }) => {
     }
     return (
         <div>
-            <Button className="btn btn-blue" title="Payer" onClick={() => handleCheckout()} />
+           {/* <Button className="btn btn-blue" title="Payer" onClick={() => handleCheckout()} /> */}
+           <div className="tixContainer">
+      <div className="tix" onClick={() => handleCheckout()}>
+        <div className="tixInner">
+          <span><strong>Réserver</strong></span>
+        </div>
+      </div>
+    </div>
         </div>
     )
 }

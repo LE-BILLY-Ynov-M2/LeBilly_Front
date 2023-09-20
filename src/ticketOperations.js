@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const billets_plafond = 2000;
+export const billets_plafond = 10;
 
 
 
