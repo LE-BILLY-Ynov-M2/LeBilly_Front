@@ -11,6 +11,8 @@ import Login from "./pages/authentification/login"
 import Register from "./pages/authentification/register"
 import VerifCode from "./pages/authentification/verifCode"
 import { AuthContextProvider } from "./context/AuthContext"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 // export default function Partners() {
 //   const partners = [
@@ -29,6 +31,8 @@ import ModifClient from "./pages/admin/listeClients/[id]"
 import AjoutClient from "./pages/admin/listeClients/ajoutClient/ajoutClient"
 import Programmation from "./pages/programmation/programmation"
 import Evenement from "./pages/programmation/[id]/evenement"
+import SuccessPaiement from "./pages/paiement/successPaiement"
+import ErrorPaiement from "./pages/paiement/errorPaiement"
 ;<Header />
 
 const Main = () => {
@@ -120,8 +124,11 @@ const App = () => {
                         <Route path="/ajoutClient" element={<AjoutClient />} />
                         <Route path="/programmation" element={<Programmation />} />
                         <Route path="/programmation/:id" element={<Evenement />} />
+                        <Route path="/successPaiement" element={<SuccessPaiement />} />
+                        <Route path="/errorPaiement" element={<ErrorPaiement />} />
                     </Routes>
                     <Footer />
+                    <ToastContainer />
                 </div>
             </Router>
         </AuthContextProvider>

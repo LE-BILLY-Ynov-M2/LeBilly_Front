@@ -4,11 +4,11 @@ import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
 import { FiCheck } from "react-icons/fi"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Resetpassword = () => {
     const [password, setPassword] = useState({})
-    const [isValid, setIsValid] = useState(false)
-    const [validMessage, setValidMessage] = useState("")
     const navigate = useNavigate()
     const [eightcaracmin, setEightcaracmin] = useState(false)
     const [oneNumberMin, setOneNumberMin] = useState(false)
@@ -47,11 +47,28 @@ const Resetpassword = () => {
             .then(data => {
                 console.log(data)
                 if (data.detail) {
-                    setIsValid(true)
-                    setValidMessage(data.detail)
+                    toast.success(data.detail, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                     navigate("/login")
                 } else {
-                    setIsValid(false)
+                    toast.error("error", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 }
             })
             .catch(err => {
@@ -109,7 +126,6 @@ const Resetpassword = () => {
                     <Button title="Envoyer" />
                 </>
             )}
-            {isValid ? <p>{validMessage}</p> : ""}
         </div>
     )
 }

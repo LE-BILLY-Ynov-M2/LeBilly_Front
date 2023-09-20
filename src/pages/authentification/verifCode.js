@@ -3,15 +3,13 @@ import Input from "../../components/others/input/input"
 import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const VerifCode = () => {
     const [code, setCode] = useState({})
     const [isVisible, setIsVisible] = useState(false)
     const navigate = useNavigate()
-    const [isError, setIsError] = useState(false)
-    const [isValid, setIsValid] = useState(false)
-    const [errorMessage, setErrorMessage] = useState("")
-    const [validMessage, setValidMessage] = useState("")
 
     const url = window.location.search
     const paramUrl = url.split("?")[1].split(".")[0]
@@ -23,14 +21,29 @@ const VerifCode = () => {
                 console.log("data, sendCode")
                 console.log(data)
                 if (data.message) {
+                    toast.success(data.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                     setIsVisible(true)
-                    setIsError(false)
-                    setIsValid(true)
-                    setValidMessage(data.message)
                 } else {
-                    setIsValid(false)
-                    setIsError(true)
-                    setErrorMessage("Le code d'activation est incorrect")
+                    setIsVisible(false)
+                    toast.error("Le code d'activation est incorrect", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 }
             })
             .catch(err => console.log(err))
@@ -47,23 +60,9 @@ const VerifCode = () => {
                         }}
                     />
                     <Button title="Envoyer" onClick={e => sendCode(e)} />
-                    {isError ? (
-                        <div>
-                            <p>{errorMessage}</p>
-                        </div>
-                    ) : (
-                        ""
-                    )}
                 </div>
             ) : (
                 <div>
-                    {isValid ? (
-                        <div>
-                            <p>{validMessage}</p>
-                        </div>
-                    ) : (
-                        ""
-                    )}
                     <Button
                         title="Se connecter"
                         onClick={() => {

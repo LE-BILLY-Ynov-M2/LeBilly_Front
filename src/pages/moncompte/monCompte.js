@@ -6,22 +6,16 @@ import Button from "../../components/others/button/button"
 import userService from "../../services/user.service"
 import AuthContext from "../../context/AuthContext"
 import { AiOutlineEdit, AiOutlineRollback } from "react-icons/ai"
-
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import "./monCompte.scss"
 
 const MonCompte = () => {
     const [user, setUser] = useState({})
     const [visible, setVisible] = useState(true)
-    const navigate = useNavigate()
     const { userContext } = useContext(AuthContext)
 
     useEffect(() => {
-        //faire le verif token
-        //si pas verifier
-        //navigate("/login")
-        //sinon
-        console.log(userContext)
-        console.log(userContext.id)
         userService
             .getUser(userContext.id)
             .then(data => {
@@ -39,6 +33,29 @@ const MonCompte = () => {
             .then(data => {
                 console.log(data)
                 setVisible(true)
+                if (data.message) {
+                    toast.success(data.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
+                } else {
+                    toast.error(data.detail, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
+                }
             })
             .catch(err => {
                 console.log(err)

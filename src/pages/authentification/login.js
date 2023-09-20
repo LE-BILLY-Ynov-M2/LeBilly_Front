@@ -5,13 +5,11 @@ import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
 import AuthContext from "../../context/AuthContext"
 import "./login.scss"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Login = () => {
     const [user, setUser] = useState({})
-    const [error, setError] = useState(false)
-    const [valid, setValid] = useState(false)
-    const [errorMessage, setErrorMessage] = useState("")
-    const [validMessage, setValidMessage] = useState("")
     const navigate = useNavigate()
     const { setUserContext } = useContext(AuthContext)
 
@@ -21,29 +19,37 @@ const Login = () => {
             .login(user)
             .then(data => {
                 if (data.detail) {
-                    setValid(false)
-                    setError(true)
-                    setErrorMessage(data.detail)
+                    toast.error(data.detail, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 }
                 if (data.message) {
-                    setError(false)
-                    setValid(true)
-                    setValidMessage(data.message)
                     setUserContext({
                         token: data.token,
                         admin: data.admin,
                         id: data.user_id,
                     })
+                    toast.success(data.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                     navigate("/")
+
                     console.log(data)
                 }
-                // console.log(data)
-                // setUserContext({
-                //     token: data.token,
-                //     admin: data.admin,
-                //     id: data.id,
-                // })
-                // navigate("/event")
             })
             .catch(err => {
                 console.log(err)
@@ -95,13 +101,6 @@ const Login = () => {
                     />
                 </div>
             </div>
-            {error ? (
-                <div>
-                    <p>{errorMessage}</p>
-                </div>
-            ) : (
-                ""
-            )}
         </div>
     )
 }
