@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import Footer from './Footer';
-import './App.css';
+import Footer from './components/Footer/Footer';
+import './App.scss';
 import './PlanDuSite.css';
 import "./Partners.css";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
