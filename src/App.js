@@ -31,7 +31,6 @@ import Programmation from "./pages/programmation/programmation"
 import Evenement from "./pages/programmation/[id]/evenement"
 import SuccessPaiement from "./pages/paiement/successPaiement"
 import ErrorPaiement from "./pages/paiement/errorPaiement"
-;<Header />
 
 const Main = () => {
     ;<script
@@ -123,8 +122,6 @@ const Main = () => {
         </main>
     )
 }
-
-;<Footer />
 
 const App = () => {
     return (
