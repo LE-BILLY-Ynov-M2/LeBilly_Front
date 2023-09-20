@@ -5,6 +5,7 @@ import userService from "../../services/user.service"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import "./verifCode.scss"
 
 const VerifCode = () => {
     const [code, setCode] = useState({})
@@ -50,16 +51,32 @@ const VerifCode = () => {
     }
 
     return (
-        <div>
+        <div className="bloc-vrf">
             {!isVisible ? (
-                <div>
-                    <p>Un code vous a été envoyé par mail. Veuillez le saisir</p>
+                <div className="container-vrf">
+                    <h1>Un code vous a été envoyé par mail. Veuillez le saisir</h1>
+                    <br />
+                    <br />
                     <Input
+                        className="input-vrf"
                         onChange={e => {
                             setCode({ ...code, activation_code: e.target.value })
                         }}
                     />
+
                     <Button title="Envoyer" onClick={e => sendCode(e)} />
+
+                    <br />
+                    <div className="col-vrf">
+                        <Button title="Envoyer" onClick={e => sendCode(e)} />
+                        {isError ? (
+                            <div>
+                                <p>{errorMessage}</p>
+                            </div>
+                        ) : (
+                            ""
+                        )}
+                    </div>
                 </div>
             ) : (
                 <div>

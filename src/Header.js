@@ -35,6 +35,7 @@ const Header = () => {
                     <li>
                         <Link to="/photos">Photos</Link>
                     </li>
+                    <li><Link to="/AdminDashboard">Dashboard</Link></li>
                     {/* <li>
                         <Link to="/event">Event</Link>
                     </li> */}

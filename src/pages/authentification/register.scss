@@ -1,0 +1,100 @@
+@import "../../css-config/mixins.scss";
+
+.bloc-reg {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+    width: 100%;
+    background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
+
+    .container-reg {
+        max-width: 1000px;
+        background: #fff;
+        width: 1500px;
+        padding: 25px 40px 10px 40px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        background-color: floralwhite;
+        border-radius: 30px;
+
+        .text-reg {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            font-family: sans-serif;
+            background-image: linear-gradient(to right, #1bffff, #2e3192);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .label-reg {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: sans-serif;
+            margin-left: 2%;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: sans-serif;
+            margin-left: 2%;
+        }
+
+        .input-reg {
+            padding: 5px;
+            margin: 5px;
+            width: 100%;
+            border-radius: 30px;
+            border: none;
+            background-color: #efeaea;
+        }
+
+        .col-reg {
+            display: inline-block;
+            margin: 10px 2.5% 10px 7%;
+            text-align: center;
+            margin-left: 45%;
+
+            button {
+                border-radius: 30px;
+                border-color: white;
+                font-size: large;
+                padding: 10px;
+
+                .buttongrey {
+                    cursor: pointer;
+                    background-color: #666;
+                    color: #ddd;
+                    border: 2px solid #ddd;
+                    width: 100%;
+                    justify-content: center;
+
+                    &:hover {
+                        background: #ddd;
+                        color: #666;
+                        border: 2px solid #666;
+                    }
+                }
+
+                .buttonblue {
+                    cursor: pointer;
+                    background-color: #272798;
+                    color: #ffffff;
+                    font-weight: bold;
+                    border-radius: 30px;
+                    width: 70%;
+                    border: 0px;
+                    padding: 0px;
+                    &:hover {
+                        background: #ffffff;
+                        color: #272798;
+                    }
+                }
+            }
+        }
+    }
+}

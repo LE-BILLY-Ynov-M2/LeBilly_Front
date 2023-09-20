@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oddval Variable';
+  }
+  
+  @font-face {
+    font-family: "Oddval Variable";
+    src: url("https://garet.typeforward.com/assets/fonts/campaigns/OddvalVariable-VariableVF.woff2");
+  }
+  
+  .app {
+    font-family: 'Arial', sans-serif;
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #20232a;
+      color: #61dafb;
+  
+      ul {
+        list-style-type: none;
+        display: flex;
+  
+        li {
+          margin: 0 10px;
+          cursor: pointer;
+  
+          &.account {
+            background-color: #61dafb;
+            color: #20232a;
+            padding: 10px;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+  
+      .title-section, .main-events, .upcoming-events, .newsletter, .partners {
+        margin-bottom: 20px;
+        width: 80%;
+        text-align: center;
+      }
+  
+      .title-section {
+        text-align: center;
+        margin-bottom: 2em;
+      }
+  
+      .title {
+        font-size: 5em;
+        font-weight: bold;
+        color: #61dafb;
+        text-shadow: 2px 2px #20232a;
+      }
+  
+      .section-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+  
+        h2 {
+          margin-right: 30px;
+        }
+  
+        span {
+          display: inline-block;
+          flex-grow: 0.1;
+          width: 50px;
+          height: .2rem;
+          background-color: #75cff9;
+        }
+      }
+  
+      .image-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .btn-primary, .btn-secondary {
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+  
+        &.btn-primary {
+          background-color: #61dafb;
+  
+          &:hover {
+            background-color: #bbeeff;
+          }
+        }
+  
+        &.btn-secondary {
+          background-color: #20232a;
+  
+          &:hover {
+            background-color: #555555;
+          }
+        }
+      }
+  
+      footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #20232a;
+        color: #61dafb;
+  
+        ul {
+          list-style-type: none;
+          display: flex;
+  
+          li {
+            margin: 0 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  
+  .presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sticky-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .description {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+  }
+  
+  
+  .dates-info, .prix-info {
+    font-size: 1.2em;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    width: fit-content;
+    box-shadow: 0px 0px 10px #ccc;
+  }
+  
+  .artiste-name {
+    font-size: 3em;
+    text-shadow: 3px 3px 2px #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .video-container{
+  
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  
