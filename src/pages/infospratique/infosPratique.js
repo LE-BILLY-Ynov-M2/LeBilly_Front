@@ -20,8 +20,8 @@ const InfosPratique = () => {
                 <div className="cities">
                     <div>
                         <p className="p">Saint-Brieuc : 30min</p>
-                        <p className="p">Brest : 1h20min</p>
-                        <p className="p">Rennes : 1h30min</p>
+                        <p className="p">Lannion : 30min</p>
+                        <p className="p">Pontivy : 1h00min</p>
                     </div>
                     <div>
                         <p className="p">Saint-Malo : 1h30min</p>
