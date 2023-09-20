@@ -45,9 +45,9 @@
         }
 
         .col-log {
-            display: inline-block;
+            display: flex;
+            justify-content: center;
             text-align: center;
-            margin-left: 100px;
 
             .btn {
                 cursor: pointer;
