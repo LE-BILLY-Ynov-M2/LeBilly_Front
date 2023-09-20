@@ -52,42 +52,35 @@ const VerifCode = () => {
 
     return (
         <div className="bloc-vrf">
-            {!isVisible ? (
-                <div className="container-vrf">
-                    <h1>Un code vous a été envoyé par mail. Veuillez le saisir</h1>
-                    <br />
-                    <br />
-                    <Input
-                        className="input-vrf"
-                        onChange={e => {
-                            setCode({ ...code, activation_code: e.target.value })
-                        }}
-                    />
+            <div className="container-vrf">
+                <h1>Un code vous a été envoyé par mail. Veuillez le saisir</h1>
+                <br />
+                <br />
 
-                    <Button title="Envoyer" onClick={e => sendCode(e)} />
-
-                    <br />
-                    <div className="col-vrf">
-                        <Button title="Envoyer" onClick={e => sendCode(e)} />
-                        {isError ? (
-                            <div>
-                                <p>{errorMessage}</p>
-                            </div>
-                        ) : (
-                            ""
-                        )}
+                <br />
+                {!isVisible ? (
+                    <div>
+                        <Input
+                            className="input-vrf"
+                            onChange={e => {
+                                setCode({ ...code, activation_code: e.target.value })
+                            }}
+                        />
+                        <div className="col-vrf">
+                            <Button title="Envoyer" onClick={e => sendCode(e)} />
+                        </div>
                     </div>
-                </div>
-            ) : (
-                <div>
-                    <Button
-                        title="Se connecter"
-                        onClick={() => {
-                            navigate("/login")
-                        }}
-                    />
-                </div>
-            )}
+                ) : (
+                    <div className="col-vrf">
+                        <Button
+                            title="Se connecter"
+                            onClick={() => {
+                                navigate("/login")
+                            }}
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
