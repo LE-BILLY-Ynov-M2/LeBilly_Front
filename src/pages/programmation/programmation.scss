@@ -1,6 +1,54 @@
-.imageEvent {
-    width: 200px;
-    height: 200px;
-    margin-right: 20px;
-    margin-left: 20px;
+@import "../../css-config/mixins.scss";
+
+.bloc-prog {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
+
+    .container-prog {
+        max-width: 80%;
+        background: #fff;
+        width: 1000%;
+        height: 50%;
+        margin: 10%;
+        padding: 25px 40px 10px 40px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        background-color: floralwhite;
+        border-radius: 30px;
+        max-width: 1140px;
+
+        .row-prog {
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col-md-6 {
+            margin: 50px 0;
+            @include md {
+                margin: 75px 0;
+            }
+
+            .billy {
+                position: relative;
+                width: 100%;
+                margin: auto;
+                overflow: hidden;
+                display: flex;
+                color: transparent;
+
+                .imageEvent {
+                    width: 200px;
+                    height: 200px;
+                    cursor: pointer;
+                    margin: auto;
+                }
+            }
+        }
+    }
 }
