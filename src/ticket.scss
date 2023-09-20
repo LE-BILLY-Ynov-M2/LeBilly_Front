@@ -1,0 +1,99 @@
+.tixContainer {
+    position: relative;
+    margin: 50px;
+  }
+  
+  .tix {
+    font-size: 30px;
+    display: table;
+    z-index: 2;
+    width: 206px;
+    height: 104px;
+    background: -webkit-radial-gradient(0 100%, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px), -webkit-radial-gradient(100% 100%, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px), -webkit-radial-gradient(100% 0, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px), -webkit-radial-gradient(0 0, circle, rgba(204, 204, 204, 0) 14px, #ccc 15px);
+    cursor: pointer;  
+}
+  
+  .tix:before {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    z-index: 0;
+    background: -webkit-radial-gradient(0 100%, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px), 
+              -webkit-radial-gradient(100% 100%, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px), 
+              -webkit-radial-gradient(100% 0, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px), 
+              -webkit-radial-gradient(0 0, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px);
+  }
+  
+  .tixInner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .tixInner:before {
+    z-index: 0;
+    content: "";
+    display: block;
+    width: 186px;
+    height: 86px;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    background: -webkit-radial-gradient(0 100%, circle, rgba(255, 255, 255, 0) 14px, white 15px), -webkit-radial-gradient(100% 100%, circle, rgba(255, 255, 255, 0) 14px, white 15px), -webkit-radial-gradient(100% 0, circle, rgba(255, 255, 255, 0) 14px, white 15px), -webkit-radial-gradient(0 0, circle, rgba(255, 255, 255, 0) 14px, white 15px);
+  }
+  
+  .tixInner:after {
+    z-index: 0;
+    content: "";
+    display: block;
+    width: 182px;
+    height: 82px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: -webkit-radial-gradient(0 100%, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px), 
+              -webkit-radial-gradient(100% 100%, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px), 
+              -webkit-radial-gradient(100% 0, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px), 
+              -webkit-radial-gradient(0 0, circle, rgba(204, 102, 153, 0) 14px, #61dafb 15px);
+  }
+
+  
+  .tix,
+  .tix:before,
+  .tix:after,
+  .tixInner:before,
+  .tixInner:after {
+    background-position: bottom left, bottom right, top right, top left;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+  }
+  
+  .tixInner span {
+    z-index: 10;
+    position: relative;
+    color: #fff;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: Helvetica, arial;
+  }
+
+  .tix:not(:active):hover .tixInner:after {
+    opacity: 0.7;
+  }
+
+  
+
+
+  .tix:active {
+    opacity: 0.6;
+  }
+  

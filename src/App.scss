@@ -132,16 +132,58 @@
   }
   
   .presentation {
+    font-family: "Poppins", sans-serif;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    height: 150vh;
+    width: 100%;
+    background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
+    .container-pres {
+      max-width: 2000px;
+      background: #fff;
+      width: 1500px;
+      padding: 50px 40px 10px 50px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      background-color: floralwhite;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
   }
-  
+}
   .content-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-  }
+    justify-content: space-between;  // This will put maximum space between elements
+    width: 85%;
+}
+
+.content-section2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;  // This will put maximum space between elements
+  width: 80%;
+}
+
+.content-section > * {
+  margin: 0 20px;  // This adds 15px margin to the left and right of each child
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+}
+.artist-image {
+  width: 600px;
+  height: auto;
+}
+
   
   .sticky-section {
     display: flex;
@@ -151,28 +193,23 @@
   
   .description {
     width: 70%;
-    margin: 0 auto;
+    margin: 2%;
     padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #ccc;
   }
   
   
   .dates-info, .prix-info {
-    font-size: 1.2em;
     background-color: #f4f4f4;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
-    border: 2px solid #ccc;
     width: fit-content;
-    box-shadow: 0px 0px 10px #ccc;
   }
   
   .artiste-name {
-    font-size: 3em;
-    text-shadow: 3px 3px 2px #ccc;
+    color: #61dafb;
+    font-size: 5em;
+    
+    text-shadow: 2px 2px #20232a;
     margin-bottom: 20px;
   }
   
