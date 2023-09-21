@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import AuthContext from "./context/AuthContext"
 import { AiOutlineLogout } from "react-icons/ai"
 import { useNavigate } from "react-router-dom"
+import "./App.scss"
 
 const Header = () => {
     const { userContext } = useContext(AuthContext)
@@ -35,17 +36,13 @@ const Header = () => {
                     <li>
                         <Link to="/photos">Photos</Link>
                     </li>
-                    <li><Link to="/AdminDashboard">Dashboard</Link></li>
-                    {/* <li>
-                        <Link to="/event">Event</Link>
-                    </li> */}
                     {userContext && userContext.token ? (
                         <li className="account">
                             <Link to="/monCompte">Mon compte</Link>
                         </li>
                     ) : (
                         <li className="account">
-                            <Link to="/login">Se connecter</Link>
+                            <Link to="/login" className="connect-link">Se connecter</Link>
                         </li>
                     )}
                     {userContext && userContext.token ? (
