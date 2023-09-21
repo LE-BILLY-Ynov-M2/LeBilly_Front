@@ -4,6 +4,12 @@ import Button from "../../../components/others/button/button"
 import Paybutton from "../../../components/paybutton/paybutton"
 import '../../../App.scss';
 import '../../../ticket.scss';
+import { useContext } from 'react';
+import AuthContext from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+
 
 function extractVideoId(url) {
     if (!url) return null;
@@ -45,6 +51,8 @@ function formatDate(start, end) {
   }
 
 const Evenement = () => {
+    const { userContext } = useContext(AuthContext);
+    const navigate = useNavigate();
     const urlId = window.location.pathname.split("/")[2]
     const [event, setEvent] = useState({})
 
@@ -88,7 +96,20 @@ const Evenement = () => {
             </div>
             
                         </div>
+                        {userContext && userContext.token ? (
                         <Paybutton event={event} />
+                    ) : (
+                        
+                        <Button
+                        className="btn btn-elegant"
+                            title="Veuillez vous inscrire"
+                            onClick={() => {
+                                navigate("/register");
+                            }}
+                        />
+                        
+                        
+                    )}
                         </div>
           
                 </div>

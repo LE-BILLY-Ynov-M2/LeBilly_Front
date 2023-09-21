@@ -354,3 +354,20 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
     gap: 20px;
 }
 
+
+.btn-elegant {
+    background-color: #2e3192; // La couleur de fond que vous avez utilisée précédemment
+    color: #ffffff; // Texte blanc
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; // Coins arrondis
+    font-size: 18px;
+    font-weight: 600; // Texte en gras
+    transition: background-color 0.3s, transform 0.3s; // Transition pour un effet au survol
+
+    &:hover {
+        background-color: #1bffff; // La couleur d'arrière-plan change lors du survol
+        transform: scale(1.05); // Petit effet d'agrandissement lors du survol
+        cursor: pointer;
+    }
+}

@@ -37,7 +37,6 @@ const Paybutton = ({ event }) => {
     }
     return (
         <div>
-            {/* <Button className="btn btn-blue" title="Payer" onClick={() => handleCheckout()} /> */}
             <div className="tixContainer">
                 <div className="tix" onClick={() => handleCheckout()}>
                     <div className="tixInner">
