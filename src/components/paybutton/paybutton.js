@@ -20,6 +20,7 @@ const Paybutton = ({ event }) => {
                 CheckoutService.createCheckoutSession(token, tab, event.id, userContext.id)
                     .then(res => {
                         if (res.url) {
+                            localStorage.setItem("eventId", event.id);
                             window.location.href = res.url
                         }
                     })
