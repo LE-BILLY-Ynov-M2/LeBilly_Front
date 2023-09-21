@@ -4,11 +4,14 @@
     padding: 0;
     font-family: "Oddval Variable";
 }
+
 @import "./css-config/mixins.scss";
+
 @font-face {
     font-family: "Oddval Variable";
     src: url("https://garet.typeforward.com/assets/fonts/campaigns/OddvalVariable-VariableVF.woff2");
 }
+
 $ease: cubic-bezier(0.2, 1, 0.3, 1);
 
 .menu a {
@@ -156,6 +159,7 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
     height: 150vh;
     width: 100%;
     background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
+
     .container-pres {
         max-width: 2000px;
         background: #fff;
@@ -170,11 +174,12 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
         align-items: center;
     }
 }
+
 .content-section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; // This will put maximum space between elements
+    justify-content: space-between;
     width: 85%;
 }
 
@@ -182,18 +187,19 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; // This will put maximum space between elements
+    justify-content: space-between;
     width: 80%;
 }
 
-.content-section > * {
-    margin: 0 20px; // This adds 15px margin to the left and right of each child
+.content-section>* {
+    margin: 0 20px;
 }
 
 .text-section {
     display: flex;
     flex-direction: column;
 }
+
 .artist-image {
     width: 600px;
     height: auto;
@@ -234,8 +240,8 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
 
 .inner-container {
     position: relative;
-    width: 300px; // La même largeur que l'image
-    height: 300px; // La même hauteur que l'image
+    width: 300px;
+    height: 300px;
     margin: auto;
 }
 
@@ -247,6 +253,7 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
     transition: transform 0.2s ease-in-out;
     border-radius: 20px;
 }
+
 .artiste-name {
     font-size: 2em;
     cursor: pointer;
@@ -280,15 +287,17 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
 .event-button:hover .artiste-name {
     opacity: 1;
 }
+
 .event-button {
     flex-basis: calc(50% - 10px);
     margin-bottom: 20px;
     width: 400px;
     border: none;
-    position: relative; /* Ajoutez le positionnement relatif */
+    position: relative;
 }
+
 .image-container {
-    position: relative; /* Ajoutez le positionnement relatif */
+    position: relative;
 }
 
 .custom-arrow {
@@ -304,10 +313,12 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
         margin: 0 2rem;
         cursor: pointer;
         overflow: visible;
+
         polygon,
         path {
             transition: all 0.5s $ease;
         }
+
         &:hover polygon,
         &:hover path {
             transition: all 1s $ease;
@@ -317,19 +328,23 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
         &:hover .arrow {
             animation: arrow-anim 2.5s $ease infinite;
         }
+
         &:hover .arrow-fixed {
             animation: arrow-fixed-anim 2.5s $ease infinite;
         }
     }
 }
+
 @keyframes arrow-anim {
     0% {
         opacity: 1;
         transform: translateX(0);
     }
+
     5% {
         transform: translateX(-0.1rem);
     }
+
     100% {
         transform: translateX(1rem);
         opacity: 0;
@@ -340,9 +355,11 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
     5% {
         opacity: 0;
     }
+
     20% {
         opacity: 0.4;
     }
+
     100% {
         opacity: 1;
     }
@@ -356,18 +373,18 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
 
 
 .btn-elegant {
-    background-color: #2e3192; // La couleur de fond que vous avez utilisée précédemment
-    color: #ffffff; // Texte blanc
+    background-color: #2e3192;
+    color: #ffffff;
     padding: 10px 20px;
     border: none;
-    border-radius: 25px; // Coins arrondis
+    border-radius: 25px;
     font-size: 18px;
-    font-weight: 600; // Texte en gras
-    transition: background-color 0.3s, transform 0.3s; // Transition pour un effet au survol
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
 
     &:hover {
-        background-color: #1bffff; // La couleur d'arrière-plan change lors du survol
-        transform: scale(1.05); // Petit effet d'agrandissement lors du survol
+        background-color: #1bffff;
+        transform: scale(1.05);
         cursor: pointer;
     }
 }
