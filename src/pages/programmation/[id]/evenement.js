@@ -61,7 +61,7 @@ const Evenement = () => {
                     <div className="container-pres">
                     <div className="content-section">
                     <div className="text-section">
-                    <h1 className="artiste-name">{event.name_artist}</h1>
+                    <h1 className="artiste-name3">{event.name_artist}</h1>
                     <h2 className="dates-info" dangerouslySetInnerHTML={{ __html: formatDate(event.date_start, event.date_end).replace('\n', '<br>') }}></h2>
             <h2 className="prix-info"><strong>{`${event.price_artist}€`}</strong></h2>
                         </div>

@@ -11,6 +11,15 @@
 }
 $ease: cubic-bezier(0.2, 1, 0.3, 1);
 
+.menu a {
+    color: white;
+}
+
+.menu .connect-link {
+    color: black;
+}
+
+
 .app {
     font-family: "Arial", sans-serif;
 
@@ -256,6 +265,12 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
     cursor: pointer;
 }
 
+.artiste-name3 {
+    font-size: 3em;
+    color: #61dafb;
+    text-shadow: 2px 2px #20232a;
+}
+
 .event-button:hover .imageEvent {
     transform: scale(1.1);
     opacity: 0.2;
@@ -332,3 +347,10 @@ $ease: cubic-bezier(0.2, 1, 0.3, 1);
         opacity: 1;
     }
 }
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
