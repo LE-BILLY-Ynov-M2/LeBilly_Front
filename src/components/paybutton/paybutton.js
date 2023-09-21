@@ -9,8 +9,10 @@ const Paybutton = ({ event }) => {
     const [showExternalContent, setShowExternalContent] = useState(true)
     const { userContext } = useContext(AuthContext)
 
-
     const handleCheckout = () => {
+        var token = userContext.token
+        var tab = []
+        tab.push(event)
         userService
             .getUser(userContext.id)
             .then(data => {
@@ -24,8 +26,6 @@ const Paybutton = ({ event }) => {
                     .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
-
-
     }
     return (
         <div>
