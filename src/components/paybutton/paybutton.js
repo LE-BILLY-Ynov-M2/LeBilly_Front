@@ -22,6 +22,7 @@ const Paybutton = ({ event }) => {
         const token = "c70f191c-d31b-4530-8d04-f8c81ce10b56"
         var tab = []
         tab.push(event)
+        localStorage.setItem("eventId", event.id);
         CheckoutService.createCheckoutSession(token, tab, 1)
             .then(res => {
                 console.log(res)

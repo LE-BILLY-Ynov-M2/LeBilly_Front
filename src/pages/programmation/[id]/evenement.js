@@ -90,18 +90,7 @@ const Evenement = () => {
                         </div>
                         <Paybutton event={event} />
                         </div>
-           
-                        
-               
-                    {/* <div class="tixContainer">
-
-<a class="tix" href="#">
-  <div class="tixInner">
-    <span><strong>Réserver</strong></span>
-  </div>
-</a>
-  
-</div> */}
+          
                 </div>
 
 
