@@ -197,33 +197,41 @@ const Main = () => {
                     <span></span>
                 </div>
                 <div className="events-grid">
-                {events.slice(0, 4).map(element => (
-                 <div key={element.id} className="event-column">
-                 <Button
-                 className="event-button"
-                     onClick={() => {
-                         directionIdEvent(element.id)
-                     }}
-                 >
-                   <div className="image-container">
-                   <div className="inner-container">
-                     <img
-                         className="imageEvent"
-                         src={element.photo_artist}
-                         alt="photo artiste"
-                     />
-                          <h2 className="artiste-name" dangerouslySetInnerHTML={{ __html: formatDate(element.date_start, element.date_end).replace('\n', '<br>') }}></h2>
-                          </div>
-                          <h2 className="artiste-name2">{element.name_artist}</h2>
-                          <h2 className="artiste-name2">{element.nbre_place}</h2>
-                          </div>
-                 </Button>
-             </div>
-    ))}
-    </div>
-    <Link to="/programmation" className="btn-primary">
-    Voir plus
-</Link>
+                    {events.slice(0, 4).map(element => (
+                        <div key={element.id} className="event-column">
+                            <Button
+                                className="event-button"
+                                onClick={() => {
+                                    directionIdEvent(element.id)
+                                }}
+                            >
+                                <div className="image-container">
+                                    <div className="inner-container">
+                                        <img
+                                            className="imageEvent"
+                                            src={element.photo_artist}
+                                            alt="photo artiste"
+                                        />
+                                        <h2
+                                            className="artiste-name"
+                                            dangerouslySetInnerHTML={{
+                                                __html: formatDate(
+                                                    element.date_start,
+                                                    element.date_end,
+                                                ).replace("\n", "<br>"),
+                                            }}
+                                        ></h2>
+                                    </div>
+                                    <h2 className="artiste-name2">{element.name_artist}</h2>
+                                    <h2 className="artiste-name2">{element.nbre_place}</h2>
+                                </div>
+                            </Button>
+                        </div>
+                    ))}
+                </div>
+                <Link to="/programmation" className="btn-primary">
+                    Voir plus
+                </Link>
             </section>
             <section className="newsletter">
                 <div className="section-title">
@@ -276,7 +284,19 @@ const App = () => {
                         <Route path="/errorPaiement" element={<ErrorPaiement />} />
                     </Routes>
                     <Footer />
-                    <ToastContainer />
+                    <ToastContainer
+                        position="top-right"
+                        toastStyle={{ backgroundColor: "#20232a" }}
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="colored"
+                    />
                 </div>
             </Router>
         </AuthContextProvider>
