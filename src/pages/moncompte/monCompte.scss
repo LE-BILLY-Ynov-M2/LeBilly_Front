@@ -44,6 +44,11 @@
             cursor: pointer;
         }
 
+        .col-4 {
+            display: inline-block;
+            text-align: center;
+        }
+
         .moncompte-info {
             display: flex;
             align-self: flex-end;

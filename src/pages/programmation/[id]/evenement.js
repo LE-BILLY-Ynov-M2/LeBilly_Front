@@ -4,6 +4,12 @@ import Button from "../../../components/others/button/button"
 import Paybutton from "../../../components/paybutton/paybutton"
 import '../../../App.scss';
 import '../../../ticket.scss';
+import { useContext } from 'react';
+import AuthContext from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+
 
 function extractVideoId(url) {
     if (!url) return null;
@@ -45,6 +51,8 @@ function formatDate(start, end) {
   }
 
 const Evenement = () => {
+    const { userContext } = useContext(AuthContext);
+    const navigate = useNavigate();
     const urlId = window.location.pathname.split("/")[2]
     const [event, setEvent] = useState({})
 
@@ -61,7 +69,7 @@ const Evenement = () => {
                     <div className="container-pres">
                     <div className="content-section">
                     <div className="text-section">
-                    <h1 className="artiste-name">{event.name_artist}</h1>
+                    <h1 className="artiste-name3">{event.name_artist}</h1>
                     <h2 className="dates-info" dangerouslySetInnerHTML={{ __html: formatDate(event.date_start, event.date_end).replace('\n', '<br>') }}></h2>
             <h2 className="prix-info"><strong>{`${event.price_artist}€`}</strong></h2>
                         </div>
@@ -88,20 +96,22 @@ const Evenement = () => {
             </div>
             
                         </div>
+                        {userContext && userContext.token ? (
                         <Paybutton event={event} />
-                        </div>
-           
+                    ) : (
                         
-               
-                    {/* <div class="tixContainer">
-
-<a class="tix" href="#">
-  <div class="tixInner">
-    <span><strong>Réserver</strong></span>
-  </div>
-</a>
-  
-</div> */}
+                        <Button
+                        className="btn btn-elegant"
+                            title="Veuillez vous inscrire"
+                            onClick={() => {
+                                navigate("/register");
+                            }}
+                        />
+                        
+                        
+                    )}
+                        </div>
+          
                 </div>
 
 

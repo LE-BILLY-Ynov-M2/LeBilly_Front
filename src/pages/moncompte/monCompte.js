@@ -145,32 +145,54 @@ const MonCompte = () => {
                     <>
                         {user ? (
                             <>
-                                <div className="moncompte-info">
-                                    <p>Prénom : {user.prenom}</p>
-                                    <br />
-                                    <p className="p-alignright">Nom de famille : {user.name}</p>
-                                    <br />
+                                <div>
+                                    <div className="item-moncompte">
+                                        <div className="moncompte-info">
+                                            <p>Prénom : {user.prenom}</p>
+                                        </div>
+
+                                        <br />
+                                        <div className="col-4">
+                                            <p className="p-alignright">
+                                                Nom de famille : {user.name}
+                                            </p>
+
+                                            <br />
+                                        </div>
+                                    </div>
+
+                                    <div className="item-moncompte">
+                                        <div className="moncompte-info">
+                                            <p>Nom d'utilisateur : {user.username}</p>
+                                        </div>
+                                        <br />
+                                        <div className="col-4">
+                                            <p className="p-alignright">
+                                                Sexe :{" "}
+                                                {user.sexe === "O"
+                                                    ? "Autre"
+                                                    : user.sexe === "F"
+                                                    ? "Femme"
+                                                    : user.sexe === "M"
+                                                    ? "Homme"
+                                                    : ""}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="moncompte-info">
-                                    <p>Nom d'utilisateur : {user.username}</p>
+                                <br />
+                                <div className="col-4">
+                                    <div className="moncompte-info">
+                                        <p>Adresse : {user.adresse}</p>
+                                        <br />
+                                    </div>
                                     <br />
-                                    <p className="p-alignright">
-                                        Sexe :{" "}
-                                        {user.sexe === "O"
-                                            ? "Autre"
-                                            : user.sexe === "F"
-                                            ? "Femme"
-                                            : user.sexe === "M"
-                                            ? "Homme"
-                                            : ""}
-                                    </p>
-                                    <br />
-                                </div>
-                                <div className="moncompte-info">
-                                    <p>Adresse : {user.adresse}</p>
-                                    <br />
-                                    <p className="p-alignright">Code postal : {user.code_postal}</p>
-                                    <br />
+                                    <div className="col-4">
+                                        <p className="p-alignright">
+                                            Code postal : {user.code_postal}
+                                        </p>
+                                        <br />
+                                    </div>
                                 </div>
                             </>
                         ) : (

@@ -1,141 +1,152 @@
-
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Oddval Variable';
-  }
-  @import "./css-config/mixins.scss"; 
-  @font-face {
+    font-family: "Oddval Variable";
+}
+@import "./css-config/mixins.scss";
+@font-face {
     font-family: "Oddval Variable";
     src: url("https://garet.typeforward.com/assets/fonts/campaigns/OddvalVariable-VariableVF.woff2");
-  }
-  $ease: cubic-bezier(.2, 1, .3, 1);
+}
+$ease: cubic-bezier(0.2, 1, 0.3, 1);
 
-  
-  .app {
-    font-family: 'Arial', sans-serif;
-  
+.menu a {
+    color: white;
+}
+
+.menu .connect-link {
+    color: black;
+}
+
+
+.app {
+    font-family: "Arial", sans-serif;
+
     header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      background-color: #20232a;
-      color: #61dafb;
-  
-      ul {
-        list-style-type: none;
-        display: flex;
-  
-        li {
-          margin: 0 10px;
-          cursor: pointer;
-  
-          &.account {
-            background-color: #61dafb;
-            color: #20232a;
-            padding: 10px;
-            border-radius: 5px;
-          }
-        }
-      }
-    }
-  
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-  
-      .title-section, .main-events, .upcoming-events, .newsletter, .partners {
-        margin-bottom: 20px;
-        width: 80%;
-        text-align: center;
-      }
-  
-      .title-section {
-        text-align: center;
-        margin-bottom: 2em;
-      }
-  
-      .title {
-        font-size: 5em;
-        font-weight: bold;
-        color: #61dafb;
-        text-shadow: 2px 2px #20232a;
-      }
-  
-      .section-title {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-  
-        h2 {
-          margin-right: 30px;
-        }
-  
-        span {
-          display: inline-block;
-          flex-grow: 0.1;
-          width: 50px;
-          height: .2rem;
-          background-color: #75cff9;
-        }
-      }
-  
-      .image-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-  
-      .btn-primary, .btn-secondary {
-        margin-top: 20px;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-  
-        &.btn-primary {
-          background-color: #61dafb;
-  
-          &:hover {
-            background-color: #bbeeff;
-          }
-        }
-  
-        &.btn-secondary {
-          background-color: #20232a;
-  
-          &:hover {
-            background-color: #555555;
-          }
-        }
-      }
-  
-      footer {
         display: flex;
         justify-content: space-between;
         padding: 20px;
         background-color: #20232a;
         color: #61dafb;
-  
+
         ul {
-          list-style-type: none;
-          display: flex;
-  
-          li {
-            margin: 0 10px;
-            cursor: pointer;
-          }
+            list-style-type: none;
+            display: flex;
+
+            li {
+                margin: 0 10px;
+                cursor: pointer;
+
+                &.account {
+                    background-color: #61dafb;
+                    color: #20232a;
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+            }
         }
-      }
     }
-  }
-  
-  .presentation {
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+
+        .title-section,
+        .main-events,
+        .upcoming-events,
+        .newsletter,
+        .partners {
+            margin-bottom: 20px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .title {
+            font-size: 5em;
+            font-weight: bold;
+            color: #61dafb;
+            text-shadow: 2px 2px #20232a;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+
+            h2 {
+                margin-right: 30px;
+            }
+
+            span {
+                display: inline-block;
+                flex-grow: 0.1;
+                width: 50px;
+                height: 0.2rem;
+                background-color: #75cff9;
+            }
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+
+            &.btn-primary {
+                background-color: #61dafb;
+
+                &:hover {
+                    background-color: #bbeeff;
+                }
+            }
+
+            &.btn-secondary {
+                background-color: #20232a;
+
+                &:hover {
+                    background-color: #555555;
+                }
+            }
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #20232a;
+            color: #61dafb;
+
+            ul {
+                list-style-type: none;
+                display: flex;
+
+                li {
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.presentation {
     font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
@@ -146,194 +157,217 @@
     width: 100%;
     background: linear-gradient(115deg, #2e3192 10%, #1bffff 90%);
     .container-pres {
-      max-width: 2000px;
-      background: #fff;
-      width: 1500px;
-      padding: 50px 40px 10px 50px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      background-color: floralwhite;
-      border-radius: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
+        max-width: 2000px;
+        background: #fff;
+        width: 1500px;
+        padding: 50px 40px 10px 50px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        background-color: floralwhite;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
-  .content-section {
+.content-section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;  // This will put maximum space between elements
+    justify-content: space-between; // This will put maximum space between elements
     width: 85%;
 }
 
 .content-section2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;  // This will put maximum space between elements
-  width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; // This will put maximum space between elements
+    width: 80%;
 }
 
 .content-section > * {
-  margin: 0 20px;  // This adds 15px margin to the left and right of each child
+    margin: 0 20px; // This adds 15px margin to the left and right of each child
 }
 
 .text-section {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .artist-image {
-  width: 600px;
-  height: auto;
+    width: 600px;
+    height: auto;
 }
 
-  
-  .sticky-section {
+.sticky-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .description {
+}
+
+.description {
     width: 70%;
     margin: 2%;
     padding: 20px;
-  }
-  
-  
-  .dates-info, .prix-info {
+}
+
+.dates-info,
+.prix-info {
     background-color: #f4f4f4;
     padding: 10px;
     margin: 10px 0;
     width: fit-content;
-  }
-  
-  .artiste-name {
+}
+
+.artiste-name {
     color: #61dafb;
     font-size: 5em;
-    
+
     text-shadow: 2px 2px #20232a;
     margin-bottom: 20px;
-  }
-  
-  .video-container{
-  
+}
+
+.video-container {
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-  
+}
+
+.inner-container {
+    position: relative;
+    width: 300px; // La même largeur que l'image
+    height: 300px; // La même hauteur que l'image
+    margin: auto;
+}
+
+.imageEvent {
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    margin: auto;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 20px;
+}
+.artiste-name {
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.artiste-name2 {
+    color: #61dafb;
+    text-shadow: 2px 2px #20232a;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.artiste-name3 {
+    font-size: 3em;
+    color: #61dafb;
+    text-shadow: 2px 2px #20232a;
+}
+
+.event-button:hover .imageEvent {
+    transform: scale(1.1);
+    opacity: 0.2;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.event-button:hover .artiste-name {
+    opacity: 1;
+}
+.event-button {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+    width: 400px;
+    border: none;
+    position: relative; /* Ajoutez le positionnement relatif */
+}
+.image-container {
+    position: relative; /* Ajoutez le positionnement relatif */
+}
+
+.custom-arrow {
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // ... autres styles
+
+    svg {
+        width: 100px;
+        height: auto;
+        margin: 0 2rem;
+        cursor: pointer;
+        overflow: visible;
+        polygon,
+        path {
+            transition: all 0.5s $ease;
+        }
+        &:hover polygon,
+        &:hover path {
+            transition: all 1s $ease;
+            fill: #ff4136;
+        }
+
+        &:hover .arrow {
+            animation: arrow-anim 2.5s $ease infinite;
+        }
+        &:hover .arrow-fixed {
+            animation: arrow-fixed-anim 2.5s $ease infinite;
+        }
+    }
+}
+@keyframes arrow-anim {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    5% {
+        transform: translateX(-0.1rem);
+    }
+    100% {
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+}
+
+@keyframes arrow-fixed-anim {
+    5% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
 
+.btn-elegant {
+    background-color: #2e3192; // La couleur de fond que vous avez utilisée précédemment
+    color: #ffffff; // Texte blanc
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; // Coins arrondis
+    font-size: 18px;
+    font-weight: 600; // Texte en gras
+    transition: background-color 0.3s, transform 0.3s; // Transition pour un effet au survol
 
-      
-
-                .inner-container {
-                    position: relative;
-                    width: 300px;  // La même largeur que l'image
-                    height: 300px;  // La même hauteur que l'image
-                    margin: auto;
-                  }
-
-                .imageEvent {
-                    width: 300px;
-                    height: 300px;
-                    cursor: pointer;
-                    margin: auto;
-                    transition: transform 0.2s ease-in-out;
-                    border-radius: 20px;
-                }
-                .artiste-name {
-                    font-size: 2em;
-                    cursor: pointer;
-                    position: absolute;
-                    top:50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    opacity: 0;
-                    transition: opacity 0.2s ease-in-out;
-                }
-
-                .artiste-name2 {
-                    color: #61dafb;
-                    text-shadow: 2px 2px #20232a;
-                    font-size: 3em;
-                    cursor: pointer;
-                }
-            
-                .event-button:hover .imageEvent {
-                    transform: scale(1.1);
-                    opacity: 0.2;
-                    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-                }
-                
-                .event-button:hover .artiste-name {
-                    opacity: 1;
-                }
-                .event-button {
-                    flex-basis: calc(50% - 10px);
-                    margin-bottom: 20px;
-                    width: 400px;
-                    border: none;
-                    position: relative; /* Ajoutez le positionnement relatif */
-                }
-                .image-container {
-                    position: relative; /* Ajoutez le positionnement relatif */
-                }
-
-
-
-                .custom-arrow {
-                  z-index: 1000;
-                  position: absolute;
-                  top: 50%;
-                  transform: translate(-50%, -50%);
-                  // ... autres styles
-                  
-                  svg {
-                    width: 100px;
-                    height: auto;
-                    margin: 0 2rem;
-                    cursor: pointer;
-                    overflow: visible;
-                    polygon, path {
-                      transition: all 0.5s $ease;
-                    }
-                    &:hover polygon, &:hover path {
-                      transition: all 1s $ease;
-                      fill: #FF4136;
-                    }
-                      
-                    &:hover .arrow {
-                      animation: arrow-anim 2.5s $ease infinite;
-                    }
-                    &:hover .arrow-fixed {
-                      animation: arrow-fixed-anim 2.5s $ease infinite;
-                    }
-                  }
-                }
-                  @keyframes arrow-anim {
-                    0% {
-                      opacity: 1;
-                      transform: translateX(0);
-                    }
-                    5% {
-                      transform: translateX(-0.1rem);
-                    }
-                    100% {
-                      transform: translateX(1rem);
-                      opacity: 0;
-                    }
-                  }
-                  
-                  @keyframes arrow-fixed-anim {
-                    5% {
-                      opacity: 0;
-                    }
-                    20% {
-                      opacity: 0.4;
-                    }
-                    100% {
-                      opacity: 1;
-                    }
-                  }
+    &:hover {
+        background-color: #1bffff; // La couleur d'arrière-plan change lors du survol
+        transform: scale(1.05); // Petit effet d'agrandissement lors du survol
+        cursor: pointer;
+    }
+}
