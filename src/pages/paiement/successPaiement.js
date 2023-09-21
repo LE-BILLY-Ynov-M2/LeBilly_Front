@@ -41,6 +41,7 @@ const SuccessPaiement = () => {
         const content = document.getElementById("pdf-content");
         const pdf = html2pdf().from(content).outputPdf();
         pdf.save("information.pdf");
+  
     };
     useEffect(() => {
         if (userContext && userContext.id) {
@@ -66,7 +67,7 @@ const SuccessPaiement = () => {
         <div className="bloc">
             <div className="container">
                 <h1 className="text">Sucess paiement</h1>
-
+    
                 <Button
                     className="btn btn-blue"
                     title="Générer PDF"
@@ -79,20 +80,25 @@ const SuccessPaiement = () => {
                         navigate("/")
                     }}
                 />
-          <div id="pdf-content">
+                <div id="pdf-content">
                     {userContext && userContext.token ? (
                         <>
                             {user ? (
-                                <div>
+    <div className="centerContent">
+                                       <section className="title-section">
+                <h1 className="title">Le Billy</h1>
+            </section>
+            <h1>Artiste : {event.name_artist}</h1>
+            <br></br>
+
                                     <p>Prénom : {user.prenom}</p>
                                     <p>Nom de famille : {user.name}</p>
                                     <p>Email : {user.email}</p>
-                                    <p>Nom de l'artiste : {event.name_artist}</p>
                                     <h2 className="dates-info" dangerouslySetInnerHTML={{ __html: formatDate(event.date_start, event.date_end).replace('\n', '<br>') }}></h2>
-            <h2 className="prix-info"><strong>{`${event.price_artist}€`}</strong></h2>
-            <img src={event.photo_artist} alt="photo artiste" style={{ width: "600px", height: "auto",
-    borderRadius: "40px"  }} />
-                                    <QRCode value={uniqueQRValue} />
+                                    <h2 className="prix-info"><strong>{`${event.price_artist}€`}</strong></h2>
+                                    <QRCode className="qrCode" value={uniqueQRValue} size={300} />
+                                    <img className="eventImage" src={event.photo_artist} alt="photo artiste" style={{ width: "500px", height: "auto", borderRadius: "40px" }} />
+                                  
                                 </div>
                             ) : null}
                         </>
@@ -101,6 +107,7 @@ const SuccessPaiement = () => {
             </div>
         </div>
     );
+    
 };
 
 export default SuccessPaiement
