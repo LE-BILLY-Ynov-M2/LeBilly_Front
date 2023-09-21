@@ -50,6 +50,9 @@ const Programmation = () => {
     return (
         <div className="bloc-prog">
             <div className="container-prog">
+            <section className="title-section">
+                <h1 className="title">Programmation</h1>
+            </section>
                 <div className="row-prog">
                     <div className="col-md-6">
                         <div className="billy">

@@ -9,6 +9,7 @@ import { AiOutlineEdit, AiOutlineRollback } from "react-icons/ai"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "./monCompte.scss"
+import eventService from "../../services/event.service"
 
 const MonCompte = () => {
     const [user, setUser] = useState({})
@@ -17,14 +18,22 @@ const MonCompte = () => {
     const [billets, setBillets] = useState([])
     const [billetsHistorique, setBilletsHistorique] = useState([])
     const navigate = useNavigate()
+    const [tableau, setTableau] = useState([])
+    const [tableauEvent, setTableauEvent] = useState([])
 
     useEffect(() => {
+        // var tableau = []
+        var tabbis = []
         userService
             .getUser(userContext.id)
             .then(data => {
+                // console.log("data.enets_user", data.events_user)
                 setUser(data)
-                let dateToday = new Date()
+                // setBillets(data.events_user)
 
+                // setTableau(data.events_user)
+
+                // console.log("tabbis", tableau)
                 // for (let i = 0; i < data.evenements; i++) {
                 //     if (
                 //         Number(i.date_end.substr(0, 4)) >=
@@ -42,7 +51,38 @@ const MonCompte = () => {
             .catch(err => {
                 console.log(err)
             })
+        // console.log("tableau", tableau)
+        // tableau.forEach(element => {
+        //     console.log("element", element)
+        // eventService
+        //     .getIdEvent(element.id)
+        //     .then(el => {
+        //         console.log("el", el)
+        //         tabbis.push(el)
+        //         console.log("xxxx", tabbis)
+        //     })
+        //     .catch(err => console.log(err))
+        // })
     }, [])
+
+    // useEffect(() => {
+    //     tableau.forEach(element => {
+    //         console.log("element", element)
+    //         console.log(typeof element)
+    //         eventService
+    //             .getIdEvent(element)
+    //             .then(el => {
+    //                 console.log("el", el)
+    //                 return setTableauEvent([...tableauEvent, el])
+    //                 // setTableauEvent([...])
+    //             })
+    //             .catch(err => console.log(err))
+    //     })
+    // }, [tableau])
+
+    // useEffect(() => {
+    //     console.log(tableauEvent)
+    // }, [tableauEvent])
 
     const updateCompte = () => {
         userService
@@ -158,7 +198,7 @@ const MonCompte = () => {
                         ) : (
                             <div>Pas d'informations</div>
                         )}
-                        <div id="ct">
+                        {/* <div id="ct">
                             <a id="a1"></a>
                             <a id="a2"></a>
                             <a href="#a1" id="l1">
@@ -170,53 +210,53 @@ const MonCompte = () => {
                             {
                                 // <p class="p1">Mes billets...</p> /*
                                 // <p class="p2">Historique</p>
-                            }
-                            <div class="div1">
-                                {billets ? (
-                                    billets.map(element => (
-                                        <div class="div2" key={element.id}>
-                                            <Button
-                                                onClick={() => {
-                                                    navigate("/programmation/" + element.id)
-                                                }}
-                                            >
-                                                <img
-                                                    className="photoArtiste"
-                                                    src={element.photo_artist}
-                                                    alt="Photo artiste"
-                                                />
+                            } */}
+                        <div>
+                            {billets ? (
+                                billets.map(element => (
+                                    <div key={element.id}>
+                                        <Button
+                                            onClick={() => {
+                                                navigate("/programmation/" + element.id)
+                                            }}
+                                        >
+                                            <img
+                                                className="photoArtiste"
+                                                src={element.photo_artist}
+                                                alt="Photo artiste"
+                                            />
 
-                                                <p class="p1">oooooooooooo</p>
-                                                <p>{element.name_artist}</p>
-                                            </Button>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <div class="div2">
-                                        <p class="p1">Pas de billets</p>
-                                        <h1>
-                                            jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-                                        </h1>
-                                    </div>
-                                )}
-                            </div>
-                            {billetsHistorique ? (
-                                billetsHistorique.map(element => (
-                                    <div class="p2" key={element.id}>
-                                        <img
-                                            className="photoArtiste"
-                                            src={element.photo_artist}
-                                            alt="Photo artiste"
-                                        />
-                                        <p>{element.name_artist}</p>
+                                            <p>oooooooooooo</p>
+                                            <p>{element.name_artist}</p>
+                                        </Button>
                                     </div>
                                 ))
                             ) : (
-                                <div class="p2">
-                                    <p>Pas d'historique</p>
+                                <div class="div2">
+                                    <p class="p1">Pas de billets</p>
+                                    <h1>
+                                        jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+                                    </h1>
                                 </div>
                             )}
                         </div>
+                        {/* {billetsHistorique ? (
+                            billetsHistorique.map(element => (
+                                <div class="p2" key={element.id}>
+                                    <img
+                                        className="photoArtiste"
+                                        src={element.photo_artist}
+                                        alt="Photo artiste"
+                                    />
+                                    <p>{element.name_artist}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <div class="p2">
+                                <p>Pas d'historique</p>
+                            </div>
+                        )} */}
+                        {/* </div> */}
                     </>
                 ) : (
                     <div>

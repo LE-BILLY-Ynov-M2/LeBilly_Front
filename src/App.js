@@ -196,29 +196,42 @@ const Main = () => {
                     <h2>Événements à venir</h2>
                     <span></span>
                 </div>
-                <div className="event-cards">
-                    {events.map((event, index) => (
-                        <div className="event-card" key={index}>
-                            <h1>{event.artiste}</h1>
-                            <h3>{event.dateDebut}</h3>
-                            <img
-                                src={event.image}
-                                alt={event.name}
-                                style={{ width: "250px", height: "auto" }}
-                            />
-
-                            <p>{event.date}</p>
-                            <Link
-                                to={`/event/${encodeURIComponent(
-                                    event.artiste,
-                                )}/${encodeURIComponent(event.dateDebut)}`}
+                <div className="events-grid">
+                    {events.slice(0, 4).map(element => (
+                        <div key={element.id} className="event-column">
+                            <Button
+                                className="event-button"
+                                onClick={() => {
+                                    directionIdEvent(element.id)
+                                }}
                             >
-                                <button className="btn-primary">Réserver</button>
-                            </Link>
+                                <div className="image-container">
+                                    <div className="inner-container">
+                                        <img
+                                            className="imageEvent"
+                                            src={element.photo_artist}
+                                            alt="photo artiste"
+                                        />
+                                        <h2
+                                            className="artiste-name"
+                                            dangerouslySetInnerHTML={{
+                                                __html: formatDate(
+                                                    element.date_start,
+                                                    element.date_end,
+                                                ).replace("\n", "<br>"),
+                                            }}
+                                        ></h2>
+                                    </div>
+                                    <h2 className="artiste-name2">{element.name_artist}</h2>
+                                    <h2 className="artiste-name2">{element.nbre_place}</h2>
+                                </div>
+                            </Button>
                         </div>
                     ))}
                 </div>
-                <button className="btn-primary">Voir plus</button>
+                <Link to="/programmation" className="btn-primary">
+                    Voir plus
+                </Link>
             </section>
             <section className="newsletter">
                 <div className="section-title">
@@ -271,7 +284,19 @@ const App = () => {
                         <Route path="/errorPaiement" element={<ErrorPaiement />} />
                     </Routes>
                     <Footer />
-                    <ToastContainer />
+                    <ToastContainer
+                        position="top-right"
+                        toastStyle={{ backgroundColor: "#20232a" }}
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="colored"
+                    />
                 </div>
             </Router>
         </AuthContextProvider>
