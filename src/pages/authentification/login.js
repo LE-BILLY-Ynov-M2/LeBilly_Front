@@ -83,7 +83,7 @@ const Login = () => {
                     />
                 </div>
 
-                <div className="col">
+                <div className="col-log">
                     <Button
                         className="btn btn-purple"
                         title="Mot de passe oublié"
